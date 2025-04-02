@@ -123,7 +123,7 @@
   body {
     @apply bg-background text-foreground;
     background-image: radial-gradient(circle at var(--px-to-rem) var(--px-to-rem), var(--body-background) var(--px-to-rem), transparent 0);
-    background-size: 2rem 2rem;
+    background-size: var(--bg-size) var(--bg-size);
   }
   /* https://github.com/shadcn-ui/ui/issues/6843 */
   button:not([disabled]),
