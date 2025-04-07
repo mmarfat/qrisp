@@ -46,10 +46,10 @@ const ThemeToggle = () => {
   // Layout
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="icon"
       onClick={handleThemeCycle}
-      className="rounded-sm"
+      className="rounded-sm dark:border-border/40"
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
     >
       {currentTheme === "light" ? (
