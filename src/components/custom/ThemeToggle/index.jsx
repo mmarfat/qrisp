@@ -49,7 +49,7 @@ const ThemeToggle = () => {
       variant="outline"
       size="icon"
       onClick={handleThemeCycle}
-      className="rounded-sm dark:border-border/40"
+      className="rounded-sm dark:border-border/40 dark:bg-background"
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
     >
       {currentTheme === "light" ? (

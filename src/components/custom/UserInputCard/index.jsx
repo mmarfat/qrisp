@@ -47,7 +47,7 @@ const UserInputCard = () => {
     const [activeTab, setActiveTab] = useState("url")
 
     return (
-        <Card className="border-border overflow-hidden backdrop-blur-sm bg-card/30 py-0">
+        <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0">
           <Tabs 
             defaultValue="url" value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="border-b border-border p-4">
@@ -56,7 +56,7 @@ const UserInputCard = () => {
                     <TabsTrigger
                         key={value}
                         value={value}
-                        className="flex items-center gap-2 py-2.5 data-[state=active]:bg-background"
+                        className="flex items-center gap-2 py-2.5 dark:data-[state=active]:bg-background dark:data-[state=active]:border-none"
                     >
                         {Icon && <Icon className="h-4 w-4" />}
                         <span className="hidden sm:inline">{label}</span>
@@ -211,7 +211,7 @@ const UserInputCard = () => {
                     variant="outline"
                     className="h-auto flex-col py-7 px-2 gap-3 justify-center items-center border-border hover:bg-accent/40 hover:border-border transition-all"
                   >
-                    <Wifi className="h-5 w-5 text-zinc-200" />
+                    <Wifi className="h-5 w-5" />
                     <span className="text-sm font-medium">WiFi</span>
                   </Button>
                   <Button
@@ -219,7 +219,7 @@ const UserInputCard = () => {
                     onClick={() => setActiveTab("sms")}
                     className="h-auto flex-col py-7 px-2 gap-3 justify-center items-center border-border hover:bg-accent/40 hover:border-border transition-all"
                   >
-                    <Wallet className="h-5 w-5 text-zinc-200" />
+                    <Wallet className="h-5 w-5" />
                     <span className="text-sm font-medium">SMS</span>
                   </Button>
                 </div>

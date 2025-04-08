@@ -24,7 +24,7 @@ const LanguageToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="h-9 px-3 rounded-sm flex items-center gap-1.5 dark:border-border/40">
+        <Button variant="outline" size="sm" className="h-9 px-3 rounded-sm flex items-center gap-1.5 dark:border-border/40 dark:bg-background">
           <Globe className="h-4 w-4" />
           <span className="text-sm font-medium">{language === "en" ? "EN" : "HR"}</span>
         </Button>
