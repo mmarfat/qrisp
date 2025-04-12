@@ -22,24 +22,14 @@ import { Textarea } from "@/components/ui/textarea";
 // Icons
 import {
   Link,
-  FileText,
   Mail,
   Wifi,
   Wallet,
   Smartphone,
-  QrCode,
-  ArrowRight,
-  Ellipsis,
 } from "lucide-react"
 
 // Utils
-const tabOptions = [
-    { value: "url", label: "URL", icon: Link },
-    { value: "text", label: "Text", icon: FileText },
-    { value: "email", label: "Email", icon: Mail },
-    { value: "crypto", label: "Crypto", icon: Wallet },
-    { value: "more", label: "More", icon: Ellipsis },
-];
+import { TAB_OPTIONS } from "@/components/custom/UserInputCard/settings";
 
 const UserInputCard = () => {
 
@@ -47,25 +37,25 @@ const UserInputCard = () => {
     const [activeTab, setActiveTab] = useState("url")
 
     return (
-        <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0">
+        <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 flex-1">
           <Tabs 
             defaultValue="url" value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <div className="border-b border-border p-4">
-            <TabsList className="grid grid-cols-5 w-full h-auto p-1 bg-muted/50">
-                {tabOptions.map(({ value, label, icon: Icon }) => (
-                    <TabsTrigger
-                        key={value}
-                        value={value}
-                        className="flex items-center gap-2 py-2.5 dark:data-[state=active]:bg-background dark:data-[state=active]:border-none"
-                    >
-                        {Icon && <Icon className="h-4 w-4" />}
-                        <span className="hidden sm:inline">{label}</span>
-                    </TabsTrigger>
-                ))}
-            </TabsList>
+            <div className="border-b border-border">
+              <TabsList className="grid grid-cols-5 w-full h-auto p-2 bg-background">
+                  {TAB_OPTIONS.map(({ value, label, icon: Icon }) => (
+                      <TabsTrigger
+                          key={value}
+                          value={value}
+                          className="flex items-center gap-2 py-2.5 dark:data-[state=active]:bg-background dark:data-[state=active]:border-border"
+                      >
+                          {Icon && <Icon className="h-4 w-4" />}
+                          <span className="hidden md:inline">{label}</span>
+                      </TabsTrigger>
+                  ))}
+              </TabsList>
             </div>
 
-            <CardContent className="p-8">
+            <CardContent className="p-4 pt-2">
               <TabsContent value="url" className="mt-0">
                 <div className="space-y-3">
                   <Label htmlFor="url" className="text-sm font-medium">
@@ -204,7 +194,7 @@ const UserInputCard = () => {
                   </div>
                 </div>
               </TabsContent>
-
+              
               <TabsContent value="more" className="mt-0">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   <Button
@@ -223,25 +213,7 @@ const UserInputCard = () => {
                     <span className="text-sm font-medium">SMS</span>
                   </Button>
                 </div>
-
-                
               </TabsContent>
-              {
-              activeTab !== "more" ? 
-                (
-                    <div className="mt-10 flex justify-end">
-                        <Button className="relative group overflow-hidden h-12 px-6 rounded-md bg-zinc-900 hover:bg-zinc-800">
-                        <span className="relative flex items-center gap-2 text-zinc-50 font-medium">
-                            <QrCode className="h-5 w-5" />
-                            <span>Generate QR Code</span>
-                            <ArrowRight className="h-5 w-5 ml-1 transition-transform duration-300 transform group-hover:translate-x-1" />
-                        </span>
-                        </Button>
-                    </div>
-                ) : (
-                    <div className="mt-10 text-center text-muted-foreground text-sm">Select a QR code type to continue</div>
-                )
-              }
             </CardContent>
           </Tabs>
         </Card>
