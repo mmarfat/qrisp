@@ -9,6 +9,9 @@ import { ThemeProvider } from '@/components/theme/theme-provider';
 import './index.css'
 import App from './App';
 
+// Fonts
+import '@fontsource-variable/inter';
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>
