@@ -101,6 +101,47 @@ feat: add dark mode toggle
 
 Pull requests are welcome! Please follow the [Conventional Commits](https://www.conventionalcommits.org/) format and keep changes focused and readable.
 
+To contribute to this project, follow the steps below:
+
+#### 1. Clone the repository:
+First, clone the repository and checkout the `dev` branch:
+
+```
+git clone https://github.com/mmarfat/qrhr
+cd qrhr
+git checkout dev
+```
+
+#### 2. Create an appropriate branch:
+Create a new branch from `dev` with an appropriate name (e.g., `qr-generation-speedup` or `qr-generation-fix`):
+
+```
+git checkout -b qr-generation-speedup
+```
+
+#### 3. Make your changes:
+Implement changes on your branch.
+
+#### 4. ⚠️ Sync your branch with the latest dev:
+Before creating a pull request, ensure your branch is up-to-date with the latest changes from `dev`. Follow these steps to sync:
+
+First, checkout `dev` and pull the latest changes:
+```
+git checkout dev
+git pull origin dev
+```
+
+Then, switch back to your feature branch and merge the changes from `dev` into your branch:
+```
+git checkout feature/new-feature
+git merge dev
+```
+
+Resolve any conflicts that may occur.
+
+#### 5. Create a Pull Request:
+Once your changes are ready and you've synced your branch with `dev`, create a pull request (PR) to merge your branch into the `dev` branch. The maintainer will review your PR and merge it if everything looks good.
+
 ---
 
 ## 📄 License
