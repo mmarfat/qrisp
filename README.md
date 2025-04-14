@@ -39,7 +39,7 @@ cd qrhr
 npm install --legacy-peer-deps
 ```
 
-ℹ️ --legacy-peer-deps resolves potential peer dependency issues
+ℹ️ `--legacy-peer-deps` resolves potential peer dependency issues
 
 ### 4. Start the development server
 
@@ -141,11 +141,5 @@ Resolve any conflicts that may occur.
 
 #### 5. Create a Pull Request:
 Once your changes are ready and you've synced your branch with `dev`, create a pull request (PR) to merge your branch into the `dev` branch. The maintainer will review your PR and merge it if everything looks good.
-
----
-
-## 📄 License
-
-Apache-2.0
 
 ---
