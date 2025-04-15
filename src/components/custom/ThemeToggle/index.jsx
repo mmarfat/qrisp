@@ -1,6 +1,9 @@
 // React
 import { useEffect, useState } from "react";
 
+// Hooks
+import useThemeFavicon from "@/hooks/ThemeToggle";
+
 // shadcn
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -14,6 +17,8 @@ import {
 const ThemeToggle = () => {
   // Theme
   const { theme, setTheme, resolvedTheme } = useTheme();
+
+  useThemeFavicon(resolvedTheme); // Set favicon based on theme
 
   // Local states
   const [mounted, setMounted] = useState(false);
