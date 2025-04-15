@@ -9,7 +9,7 @@ const Logo = () => {
         <button
             onClick={() => window.location.href = "/"}
             aria-label="Go to home page"
-            className="flex items-center gap-2"
+            className="flex items-end gap-2"
         >
             <img src={resolvedTheme === "dark" ? "/logo-dark.svg" : "/logo-light.svg"} alt="Logo" className="h-9 w-9" />
             <p className="font-black text-4xl text-primary line-height-1 dark:text-primaryDark ">
