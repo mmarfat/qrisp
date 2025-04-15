@@ -28,8 +28,8 @@ Make sure you have Node.js installed.
 ### 2. Clone the repo
 
 ```bash
-git clone https://github.com/mmarfat/qrhr
-cd qrhr
+git clone https://github.com/mmarfat/qrisp
+cd qrisp
 ```
 
 ### 3. Install the dependencies
@@ -100,15 +100,15 @@ feat: add dark mode toggle
 ## 👨‍💻 Contributing
 ⛔ **This is a personal project, so we’re not accepting general pull requests at the moment — however, localizations are always welcome!**
 
-If you have any suggestions or you want to report a bug please open an [issue](https://github.com/mmarfat/qrhr/issues).
+If you have any suggestions or you want to report a bug please open an [issue](https://github.com/mmarfat/qrisp/issues).
 
 However, if you fork this repo and want to allow contributions we recommend the following approach:
 #### 1. Clone the repository:
 First, clone the repository and checkout the `dev` branch:
 
 ```
-git clone https://github.com/mmarfat/qrhr
-cd qrhr
+git clone https://github.com/mmarfat/qrisp
+cd qrisp
 git checkout dev
 ```
 
