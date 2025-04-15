@@ -1,7 +1,5 @@
 <h1 align="center">
-  <!-- Optional logo placeholder -->
-  <!-- <img src="logo-placeholder.svg" alt="Project Logo" width="40" /> -->
-  QR Code Generator (WIP)
+  <img src="docs/assets/logo.png" alt="Project Logo" width="40%" /> -->
 </h1>
 
 <p align="center">
@@ -17,6 +15,7 @@
 - 🤝 No user tracking
 - 🧩 Built with React, Tailwind and Shadcn UI
 - ⚡️ Powered by Vite for blazing fast dev experience
+- 🧪 Tested with Vitest
 
 ---
 
@@ -93,16 +92,17 @@ feat: add dark mode toggle
 - 🎨 [Tailwind CSS](https://tailwindcss.com/)
 - 🧱 [Shadcn UI](https://ui.shadcn.dev/)
 - 📦 [npm](https://www.npmjs.com/)
-- 🧪 QR code library TBD
+- 🧪 [Vitest](https://vitest.dev/)
+- ⌛  QR code library TBD
 
 ---
 
 ## 👨‍💻 Contributing
+⛔ **This is a personal project, so we’re not accepting general pull requests at the moment — however, localizations are always welcome!**
 
-Pull requests are welcome! Please follow the [Conventional Commits](https://www.conventionalcommits.org/) format and keep changes focused and readable.
+If you have any suggestions or you want to report a bug please open an [issue](https://github.com/mmarfat/qrhr/issues).
 
-To contribute to this project, follow the steps below:
-
+However, if you fork this repo and want to allow contributions we recommend the following approach:
 #### 1. Clone the repository:
 First, clone the repository and checkout the `dev` branch:
 
