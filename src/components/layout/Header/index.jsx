@@ -4,17 +4,26 @@ import LanguageToggle from '@/components/custom/LanguageToggle';
 
 const Header = () => {
 
-    return (
-        <header>
-            <div className="flex items-center justify-between">
-                <Logo />
-                <div className="flex items-center gap-2">
-                    <LanguageToggle />
-                    <ThemeToggle />
-                </div>
-            </div>
-        </header>
-    )
+  return (
+    <header>
+      <div className="flex items-center justify-between">
+        <button
+          onClick={() => window.location.href = "/"}
+          aria-label="Go to home page"
+          className="flex items-end gap-2"
+        >
+          <Logo />
+          <p className="font-black text-4xl text-primary line-height-1 dark:text-primaryDark">
+            qrisp.
+          </p>
+        </button>
+        <div className="flex items-center gap-2">
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+  )
 }
 
 export default Header;
