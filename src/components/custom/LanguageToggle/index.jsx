@@ -12,9 +12,9 @@ import {
 
 
 // Icons
-import { 
-    Check,
-    Globe,  
+import {
+  Check,
+  Globe,
 } from "lucide-react";
 
 
