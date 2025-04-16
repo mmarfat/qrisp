@@ -1,0 +1,12 @@
+{
+  "banner": {
+    "header": "Generate QR Codes in Seconds",
+    "subheader": "Create custom QR codes for URLs, text, emails, WiFi networks, and more with our modern, fast generator."
+  },
+  "language": {
+    "toggle": {
+      "en": "English",
+      "hr": "Croatian"
+    }
+  }
+}
