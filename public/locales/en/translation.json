@@ -64,5 +64,16 @@
     "image": "Image",
     "vector": "Vector",
     "document": "Document"
+  },
+  "options": {
+    "options": "Options",
+    "dotstyle": "Dot Style",
+    "borderstyle": "Border Style",
+    "centerstyle": "Center Style",
+    "logo": "Logo",
+    "dragndrop": "Drag & drop or click to upload",
+    "logofiletypes": "PNG, JPG or SVG (max. 2MB)",
+    "uploadlogo": "Upload Logo",
+    "recommendedlogosize": "Recommended size: 100×100px, transparent background"
   }
 }

@@ -18,6 +18,9 @@ import {
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 // Icons
 import {
   Upload,
@@ -36,6 +39,8 @@ const OptionsCard = () => {
     selectedCenterStyle: 0,
   });
 
+  const { t } = useTranslation();
+
   // Handlers
   const handleCarouselChange = (type, index) => {
     setCarouselStates((prevState) => ({
@@ -48,14 +53,14 @@ const OptionsCard = () => {
     <Card className="border-border text-card-foreground backdrop-blur-sm bg-card/30 py-0 gap-2">
       <div className="flex items-center gap-2 border-b border-border p-4 font-medium text-sm tracking-tight">
         <Settings className="h-4 w-4" />
-        Options
+        {t("options.options")}
       </div>
       <CardContent className="p-4 pt-2 space-y-6">
         <div className="flex flex-col gap-6 sm:flex-row">
           <div className="flex-1 flex flex-col gap-4">
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <Label className="text-sm font-medium">Dot Style</Label>
+                <Label className="text-sm font-medium">{t("options.dotstyle")}</Label>
                 <Button variant="ghost" size="icon" className="size-6" aria-label="Change dot color">
                   <Palette className="text-muted-foreground" />
                 </Button>
@@ -90,7 +95,7 @@ const OptionsCard = () => {
 
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <Label className="text-sm font-medium">Border Style</Label>
+                <Label className="text-sm font-medium">{t("options.borderstyle")}</Label>
                 <Button variant="ghost" size="icon" className="size-6" aria-label="Change border color">
                   <Palette className="text-muted-foreground" />
                 </Button>
@@ -125,7 +130,7 @@ const OptionsCard = () => {
 
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <Label className="text-sm font-medium">Center Style</Label>
+                <Label className="text-sm font-medium">{t("options.centerstyle")}</Label>
                 <Button variant="ghost" size="icon" className="size-6" aria-label="Change center color">
                   <Palette className="text-muted-foreground" />
                 </Button>
@@ -161,7 +166,7 @@ const OptionsCard = () => {
 
           <div className="space-y-3 flex flex-col">
             <Label htmlFor="logo" className="text-sm font-medium">
-              Logo
+              {t("options.logo")}
             </Label>
             <div className="border-2 border-dashed border-border rounded-lg p-6 text-center flex-1 flex items-center justify-center">
               <div className="flex flex-col items-center justify-center gap-2">
@@ -169,16 +174,16 @@ const OptionsCard = () => {
                   <ImageIcon className="h-6 w-6 text-muted-foreground" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium">Drag & drop or click to upload</p>
-                  <p className="text-xs text-muted-foreground">PNG, JPG or SVG (max. 2MB)</p>
+                  <p className="text-sm font-medium">{t("options.dragndrop")}</p>
+                  <p className="text-xs text-muted-foreground">{t("options.logofiletypes")}</p>
                 </div>
                 <Button variant="outline" size="sm" className="mt-2">
                   <Upload className="h-4 w-4 mr-2" />
-                  Upload Logo
+                  {t("options.uploadlogo")}
                 </Button>
               </div>
             </div>
-            <p className="text-xs text-muted-foreground">Recommended size: 100×100px, transparent background</p>
+            <p className="text-xs text-muted-foreground">{t("options.recommendedlogosize")}</p>
           </div>
         </div>
       </CardContent>
