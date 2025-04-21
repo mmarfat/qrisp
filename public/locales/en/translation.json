@@ -8,5 +8,54 @@
       "en": "English",
       "hr": "Croatian"
     }
+  },
+  "tabs": {
+    "taboptions": {
+      "url": "URL",
+      "text": "Text",
+      "email": "Email",
+      "crypto": "Crypto",
+      "more": "More",
+      "wifi": "WiFi",
+      "sms": "SMS"
+    }
+  },
+  "userinput": {
+    "url": {
+      "websiteurl": "Website URL",
+      "exampleurl": "https://www.example.com",
+      "helpertext": "Enter the full URL including https://"
+    },
+    "text": {
+      "textcontent": "Text Content",
+      "exampletext": "Enter your text here",
+      "helpertext": "Any text you want to encode in the QR code"
+    },
+    "email": {
+      "emailaddress": "Email Address",
+      "exampleemail": "example@email.com",
+      "subject": "Subject (Optional)",
+      "examplesubject": "Email subject",
+      "message": "Message (Optional)",
+      "examplemessage": "Email body"
+    },
+    "crypto": {
+      "amount": "Amount",
+      "exampleamount": "0.001",
+      "address": "Address",
+      "exampleaddress": "0xe1d9Aa1FBC62c15859EB966f76A04a6Ca05caCB3",
+      "message": "Message (Optional)",
+      "examplemessage": "Transaction message"
+    },
+    "wifi": {
+
+    },
+    "sms": {
+      "phonenumber": "Phone Number",
+      "examplephone": "+1234567890",
+      "message": "Message",
+      "examplemessage": "Your SMS message",
+      "messagehelper": "The message that will be pre-filled when scanning"
+    }
   }
 }

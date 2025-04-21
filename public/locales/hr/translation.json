@@ -8,5 +8,54 @@
       "en": "Engleski",
       "hr": "Hrvatski"
     }
+  },
+  "tabs": {
+    "taboptions": {
+      "url": "URL",
+      "text": "Tekst",
+      "email": "Email",
+      "crypto": "Kripto",
+      "more": "Više",
+      "wifi": "WiFi",
+      "sms": "SMS"
+    }
+  },
+  "userinput": {
+    "url": {
+      "websiteurl": "URL web stranice",
+      "exampleurl": "https://www.primjer.hr",
+      "helpertext": "Unesite cijeli URL uključujući https://"
+    },
+    "text": {
+      "textcontent": "Tekstualni sadržaj",
+      "exampletext": "Unesite Vaš tekst ovdje",
+      "helpertext": "Bilo kakav tekst koji želite enkodirati u QR kod"
+    },
+    "email": {
+      "emailaddress": "Email Adresa",
+      "exampleemail": "primjer@email.hr",
+      "subject": "Predmet (Neobavezno)",
+      "examplesubject": "Predmet email-a",
+      "message": "Poruka (Neobavezno)",
+      "examplemessage": "Sadržaj email-a"
+    },
+    "crypto": {
+      "amount": "Količina",
+      "exampleamount": "0.001",
+      "address": "Adresa",
+      "exampleaddress": "0xe1d9Aa1FBC62c15859EB966f76A04a6Ca05caCB3",
+      "message": "Poruka (Neobavezno)",
+      "examplemessage": "Transakcijska poruka"
+    },
+    "wifi": {
+
+    },
+    "sms": {
+      "phonenumber": "Broj mobitela",
+      "examplephone": "+385991234567",
+      "message": "Poruka",
+      "examplemessage": "Vaša SMS poruka",
+      "messagehelper": "Poruka koja će se automatski popuniti prilikom skeniranja"
+    }
   }
 }
