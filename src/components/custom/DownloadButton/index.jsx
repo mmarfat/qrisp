@@ -10,6 +10,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 // Icons
 import { Download } from "lucide-react";
 
@@ -17,7 +20,9 @@ import { Download } from "lucide-react";
 import { DOWNLOAD_OPTIONS } from "@/components/custom/DownloadButton/settings";
 
 const DownloadButton = ({ disabled = false }) => {
-  const [isOpen, setIsOpen] = useState(false)
+
+  const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   const handleDownload = (format) => {
     setIsOpen(false)
@@ -30,7 +35,7 @@ const DownloadButton = ({ disabled = false }) => {
       <DropdownMenuTrigger asChild className="max-w-56">
         <Button variant="default" size="sm" disabled={disabled}>
           <Download className="h-4 w-4" />
-          Download
+          {t("qrpreview.download")}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-(--radix-dropdown-menu-trigger-width)">
@@ -38,7 +43,7 @@ const DownloadButton = ({ disabled = false }) => {
           <DropdownMenuItem key={value} onClick={() => handleDownload(value)}>
             {Icon && <Icon className="h-4 w-4" />}
             {label}
-            <span className="ml-auto text-muted-foreground text-xs">{desc}</span>
+            <span className="ml-auto text-muted-foreground text-xs">{t(desc)}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

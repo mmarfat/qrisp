@@ -57,5 +57,12 @@
       "examplemessage": "Your SMS message",
       "messagehelper": "The message that will be pre-filled when scanning"
     }
+  },
+  "qrpreview": {
+    "qrcode": "QR Code",
+    "download": "Download",
+    "image": "Image",
+    "vector": "Vector",
+    "document": "Document"
   }
 }

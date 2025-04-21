@@ -57,5 +57,12 @@
       "examplemessage": "Vaša SMS poruka",
       "messagehelper": "Poruka koja će se automatski popuniti prilikom skeniranja"
     }
+  },
+  "qrpreview": {
+    "qrcode": "QR kod",
+    "download": "Preuzmi",
+    "image": "Slika",
+    "vector": "Vektor",
+    "document": "Dokument"
   }
 }
