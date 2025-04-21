@@ -1,0 +1,79 @@
+{
+  "banner": {
+    "header": "Generirajte QR Kodove u Par Sekundi",
+    "subheader": "Stvorite prilagođene QR kodove za URL-ove, tekst, e-poštu, WiFi mreže i više, s našim modernim, brzim generatorom."
+  },
+  "language": {
+    "toggle": {
+      "en": "Engleski",
+      "hr": "Hrvatski"
+    }
+  },
+  "tabs": {
+    "taboptions": {
+      "url": "URL",
+      "text": "Tekst",
+      "email": "Email",
+      "crypto": "Kripto",
+      "more": "Više",
+      "wifi": "WiFi",
+      "sms": "SMS"
+    }
+  },
+  "userinput": {
+    "url": {
+      "websiteurl": "URL web stranice",
+      "exampleurl": "https://www.primjer.hr",
+      "helpertext": "Unesite cijeli URL uključujući https://"
+    },
+    "text": {
+      "textcontent": "Tekstualni sadržaj",
+      "exampletext": "Unesite Vaš tekst ovdje",
+      "helpertext": "Bilo kakav tekst koji želite enkodirati u QR kod"
+    },
+    "email": {
+      "emailaddress": "Email Adresa",
+      "exampleemail": "primjer@email.hr",
+      "subject": "Predmet (Neobavezno)",
+      "examplesubject": "Predmet email-a",
+      "message": "Poruka (Neobavezno)",
+      "examplemessage": "Sadržaj email-a"
+    },
+    "crypto": {
+      "amount": "Količina",
+      "exampleamount": "0.001",
+      "address": "Adresa",
+      "exampleaddress": "0xe1d9Aa1FBC62c15859EB966f76A04a6Ca05caCB3",
+      "message": "Poruka (Neobavezno)",
+      "examplemessage": "Transakcijska poruka"
+    },
+    "wifi": {
+
+    },
+    "sms": {
+      "phonenumber": "Broj mobitela",
+      "examplephone": "+385991234567",
+      "message": "Poruka",
+      "examplemessage": "Vaša SMS poruka",
+      "messagehelper": "Poruka koja će se automatski popuniti prilikom skeniranja"
+    }
+  },
+  "qrpreview": {
+    "qrcode": "QR kod",
+    "download": "Preuzmi",
+    "image": "Slika",
+    "vector": "Vektor",
+    "document": "Dokument"
+  },
+  "options": {
+    "options": "Postavke",
+    "dotstyle": "Izgled Točkica",
+    "borderstyle": "Izgled Obruba",
+    "centerstyle": "Izgled Središta",
+    "logo": "Logo",
+    "dragndrop": "Povucite i ispustite ili kliknite za prijenos",
+    "logofiletypes": "PNG, JPG ili SVG (maks. 2MB)",
+    "uploadlogo": "Prenesite Logo",
+    "recommendedlogosize": "Preporučene dimenzije: 100×100px (piksela), prozirna pozadina"
+  }
+}

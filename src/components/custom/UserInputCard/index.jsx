@@ -19,6 +19,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
+// i18n
+import { useTranslation } from "react-i18next";
+
 // Icons
 import {
   Link,
@@ -36,6 +39,8 @@ const UserInputCard = () => {
   // Local states
   const [activeTab, setActiveTab] = useState("url")
 
+  const { t } = useTranslation();
+
   return (
     <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 flex-1">
       <Tabs
@@ -49,7 +54,7 @@ const UserInputCard = () => {
                 className="flex items-center gap-2 py-2.5 dark:data-[state=active]:bg-background dark:data-[state=active]:border-border"
               >
                 {Icon && <Icon className="h-4 w-4" />}
-                <span className="hidden md:inline">{label}</span>
+                <span className="hidden md:inline">{t(label)}</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -59,31 +64,31 @@ const UserInputCard = () => {
           <TabsContent value="url" className="mt-0">
             <div className="space-y-3">
               <Label htmlFor="url" className="text-sm font-medium">
-                Website URL
+                {t("userinput.url.websiteurl")}
               </Label>
               <div className="relative">
                 <Link className="absolute left-3 top-1/2 h-4 w-4 text-muted-foreground -translate-y-1/2" />
                 <Input
                   id="url"
-                  placeholder="https://example.com"
+                  placeholder={t("userinput.url.exampleurl")}
                   className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
-              <p className="text-xs text-muted-foreground mt-1.5">Enter the full URL including https://</p>
+              <p className="text-xs text-muted-foreground mt-1.5">{t("userinput.url.helpertext")}</p>
             </div>
           </TabsContent>
 
           <TabsContent value="text" className="mt-0">
             <div className="space-y-3">
               <Label htmlFor="text" className="text-sm font-medium">
-                Text Content
+                {t("userinput.text.textcontent")}
               </Label>
               <Textarea
                 id="text"
-                placeholder="Enter your text here"
+                placeholder={t("userinput.text.exampletext")}
                 className="min-h-[140px] resize-none transition-all focus-visible:ring-offset-2"
               />
-              <p className="text-xs text-muted-foreground mt-1.5">Any text you want to encode in the QR code</p>
+              <p className="text-xs text-muted-foreground mt-1.5">{t("userinput.text.helpertext")}</p>
             </div>
           </TabsContent>
 
@@ -91,35 +96,35 @@ const UserInputCard = () => {
             <div className="space-y-5">
               <div className="space-y-3">
                 <Label htmlFor="email" className="text-sm font-medium">
-                  Email Address
+                  {t("userinput.email.emailaddress")}
                 </Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 h-4 w-4 text-muted-foreground -translate-y-1/2" />
                   <Input
                     id="email"
                     type="email"
-                    placeholder="example@email.com"
+                    placeholder={t("userinput.email.exampleemail")}
                     className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                   />
                 </div>
               </div>
               <div className="space-y-3">
                 <Label htmlFor="subject" className="text-sm font-medium">
-                  Subject (Optional)
+                  {t("userinput.email.subject")}
                 </Label>
                 <Input
                   id="subject"
-                  placeholder="Email subject"
+                  placeholder={t("userinput.email.examplesubject")}
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
               <div className="space-y-3">
                 <Label htmlFor="body" className="text-sm font-medium">
-                  Message (Optional)
+                  {t("userinput.email.message")}
                 </Label>
                 <Textarea
                   id="body"
-                  placeholder="Email body"
+                  placeholder={t("userinput.email.examplemessage")}
                   className="min-h-[100px] resize-none transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -130,34 +135,34 @@ const UserInputCard = () => {
             <div className="space-y-5 flex-1">
               <div className="space-y-3">
                 <Label htmlFor="crypto-amount" className="text-sm font-medium">
-                  Amount
+                  {t("userinput.crypto.amount")}
                 </Label>
                 <div className="relative">
                   <Wallet className="absolute left-3 top-1/2 h-4 w-4 text-muted-foreground -translate-y-1/2" />
                   <Input
                     id="crypto-amount"
-                    placeholder="0.001"
+                    placeholder={t("userinput.crypto.exampleamount")}
                     className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                   />
                 </div>
               </div>
               <div className="space-y-3">
                 <Label htmlFor="crypto-address" className="text-sm font-medium">
-                  Address
+                  {t("userinput.crypto.address")}
                 </Label>
                 <Input
                   id="crypto-address"
-                  placeholder="Wallet address"
+                  placeholder={t("userinput.crypto.exampleaddress")}
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
               <div className="space-y-3">
                 <Label htmlFor="crypto-message" className="text-sm font-medium">
-                  Message (Optional)
+                  {t("userinput.crypto.message")}
                 </Label>
                 <Textarea
                   id="crypto-message"
-                  placeholder="Transaction message"
+                  placeholder={t("userinput.crypto.examplemessage")}
                   className="min-h-[100px] resize-none transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -168,28 +173,28 @@ const UserInputCard = () => {
             <div className="space-y-5">
               <div className="space-y-3">
                 <Label htmlFor="phone" className="text-sm font-medium">
-                  Phone Number
+                  {t("userinput.sms.phonenumber")}
                 </Label>
                 <div className="relative">
                   <Smartphone className="absolute left-3 top-1/2 h-4 w-4 text-muted-foreground -translate-y-1/2" />
                   <Input
                     id="phone"
-                    placeholder="+1234567890"
+                    placeholder={t("userinput.sms.examplephone")}
                     className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                   />
                 </div>
               </div>
               <div className="space-y-3">
                 <Label htmlFor="message" className="text-sm font-medium">
-                  Message
+                  {t("userinput.sms.message")}
                 </Label>
                 <Textarea
                   id="message"
-                  placeholder="Your SMS message"
+                  placeholder={t("userinput.sms.examplemessage")}
                   className="min-h-[120px] resize-none transition-all focus-visible:ring-offset-2"
                 />
                 <p className="text-xs text-muted-foreground mt-1.5">
-                  The message that will be pre-filled when scanning
+                  {t("userinput.sms.messagehelper")}
                 </p>
               </div>
             </div>
@@ -202,7 +207,7 @@ const UserInputCard = () => {
                 className="h-auto flex-col py-7 px-2 gap-3 justify-center items-center border-border hover:bg-accent/40 hover:border-border transition-all"
               >
                 <Wifi className="h-5 w-5" />
-                <span className="text-sm font-medium">WiFi</span>
+                <span className="text-sm font-medium">{t("tabs.taboptions.wifi")}</span>
               </Button>
               <Button
                 variant="outline"
@@ -210,7 +215,7 @@ const UserInputCard = () => {
                 className="h-auto flex-col py-7 px-2 gap-3 justify-center items-center border-border hover:bg-accent/40 hover:border-border transition-all"
               >
                 <Wallet className="h-5 w-5" />
-                <span className="text-sm font-medium">SMS</span>
+                <span className="text-sm font-medium">{t("tabs.taboptions.sms")}</span>
               </Button>
             </div>
           </TabsContent>
