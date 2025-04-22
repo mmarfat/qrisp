@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://theqrisp.com/sitemap.xml
