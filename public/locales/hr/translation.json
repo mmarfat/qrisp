@@ -75,5 +75,8 @@
     "logofiletypes": "PNG, JPG ili SVG (maks. 2MB)",
     "uploadlogo": "Prenesite Logo",
     "recommendedlogosize": "Preporučene dimenzije: 100×100px (piksela), prozirna pozadina"
+  },
+  "colorpicker": {
+    "invalidformat": "Pogrešan format za boju (koristite #ffffff)"
   }
 }

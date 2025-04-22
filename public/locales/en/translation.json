@@ -75,5 +75,8 @@
     "logofiletypes": "PNG, JPG or SVG (max. 2MB)",
     "uploadlogo": "Upload Logo",
     "recommendedlogosize": "Recommended size: 100×100px, transparent background"
+  },
+  "colorpicker": {
+    "invalidformat": "Invalid color format (use #ffffff)"
   }
 }
