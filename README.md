@@ -2,6 +2,10 @@
   <img src="docs/assets/logo.png" alt="Project Logo" width="40%" />
 </h1>
 
+<div align="center">
+  <a href="https://www.theqrisp.com" target="_blank">theqrisp.com</a>
+</div>
+
 <p align="center">
   ⚡️ A lightning-fast, privacy-friendly QR code generator built with <strong>Vite</strong>, <strong>React</strong>, <strong>Tailwind</strong>, and <strong>Shadcn UI</strong>.
 </p>
