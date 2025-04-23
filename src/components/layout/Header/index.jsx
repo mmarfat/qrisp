@@ -1,29 +1,29 @@
+import Logo from "@/components/theme/logo";
 import ThemeToggle from "@/components/custom/ThemeToggle";
 import LanguageToggle from '@/components/custom/LanguageToggle';
 
 const Header = () => {
 
-    // Handlers
-    const handleHomeClick = () => {
-        window.location.href = "/";
-    };
-
-    return (
-        <header>
-            <div className="flex items-center justify-between">
-                <button
-                    onClick={handleHomeClick}
-                    aria-label="Go to home page"
-                >
-                    <img src="logo.png" alt="Logo" className="h-8 w-8" />
-                </button>
-                <div className="flex items-center gap-2">
-                    <LanguageToggle />
-                    <ThemeToggle />
-                </div>
-            </div>
-        </header>
-    )
+  return (
+    <header>
+      <div className="flex items-center justify-between">
+        <button
+          onClick={() => window.location.href = "/"}
+          aria-label="Go to home page"
+          className="flex items-end gap-2"
+        >
+          <Logo />
+          <p className="font-black text-4xl text-primary line-height-1 dark:text-primaryDark">
+            qrisp.
+          </p>
+        </button>
+        <div className="flex items-center gap-2">
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+  )
 }
 
 export default Header;

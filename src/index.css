@@ -124,7 +124,7 @@
     @apply bg-background text-foreground;
     background-image: radial-gradient(circle at var(--px-to-rem) var(--px-to-rem), var(--body-background) var(--px-to-rem), transparent 0);
     background-size: var(--bg-size);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter Variable', sans-serif;
   }
   /* https://github.com/shadcn-ui/ui/issues/6843 */
   button:not([disabled]),
