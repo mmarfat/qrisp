@@ -11,10 +11,6 @@ const Main = () => {
 
   return (
     <main className="flex flex-col items-center justify-center gap-4 md:gap-10">
-      {/* Google ad spot */}
-      <div className="w-full flex items-center justify-center border border-border/40 bg-card/30 backdrop-blur-sm p-8 rounded-md">
-        <p>Google advertisement</p>
-      </div>
       <div className="flex flex-col items-center justify-center text-center gap-4 hidden md:flex">
         <h1 className="text-4xl font-bold">{t("banner.header")}</h1>
         <p className="text-lg text-muted-foreground max-w-2xl">{t("banner.subheader")}</p>
@@ -27,10 +23,6 @@ const Main = () => {
           </div>
           <OptionsCard />
         </div>
-      </div>
-      {/* Google ad spot */}
-      <div className="w-full flex items-center justify-center border border-border/40 bg-card/30 backdrop-blur-sm p-8 rounded-md">
-        <p>Google advertisement</p>
       </div>
     </main>
   )
