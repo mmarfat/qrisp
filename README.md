@@ -12,7 +12,6 @@
 
 - ✅ Instant QR Code generation
 - 🎨 Clean, responsive UI
-- 🤝 No user tracking
 - 🧩 Built with React, Tailwind and Shadcn UI
 - ⚡️ Powered by Vite for blazing fast dev experience
 - 🧪 Tested with Vitest
