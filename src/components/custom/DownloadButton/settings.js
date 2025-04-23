@@ -10,30 +10,30 @@ export const DOWNLOAD_OPTIONS = [
     label: "PNG",
     value: "png",
     icon: FileImage,
-    desc: "Image"
+    desc: "qrpreview.image"
   },
   {
     label: "SVG",
     value: "svg",
     icon: FileType,
-    desc: "Vector"
+    desc: "qrpreview.vector"
   },
   {
     label: "JPG",
     value: "jpg",
     icon: FileImage,
-    desc: "Image"
+    desc: "qrpreview.image"
   },
   {
     label: "PDF",
     value: "pdf",
     icon: FileText,
-    desc: "Document"
+    desc: "qrpreview.document"
   },
   {
     label: "EPS",
     value: "eps",
     icon: FileJson,
-    desc: "Vector"
+    desc: "qrpreview.vector"
   },
 ]
