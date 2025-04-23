@@ -1,55 +1,48 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main
 
 jobs:
-  build_and_test:
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
+
+      - run: rm -rf node_modules package-lock.json && npm i
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v4
         with:
-          node-version: ^22.12.0
-          cache: npm
-
-      - name: Install dependencies
-        run: rm -rf node_modules package-lock.json && npm i
-
-      - name: Build Vite app
-        run: npm run build --if-present
-
-      - name: Run tests
-        run: npm test --if-present  
+          name: production-files
+          path: ./dist
 
   deploy:
+    name: Deploy
+    needs: build
     runs-on: ubuntu-latest
-    needs: build_and_test
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Download artifact
+        uses: actions/download-artifact@v4
         with:
-          path: './dist'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: production-files
+          path: ./dist
 
-      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
