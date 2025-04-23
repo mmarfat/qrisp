@@ -26,20 +26,26 @@ const LanguageToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="h-9 px-3 rounded-sm flex items-center gap-1.5 dark:border-border/40 dark:bg-background">
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="h-9 px-3 rounded-sm flex items-center gap-1.5 dark:border-border/40 dark:bg-background"
+          data-testid="language-toggle-button"
+        >
           <Globe className="h-4 w-4" />
-          <span className="text-sm font-medium">{i18n.resolvedLanguage.toUpperCase()}</span>
+          <span className="text-sm font-medium" data-testid="language-toggle-resolved-code">{i18n.resolvedLanguage.toUpperCase()}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" data-testid="language-menu-content">
         {(LANGUAGES || []).map((value) => (
           <DropdownMenuItem
             key={value}
             onClick={() => i18n.changeLanguage(value)}
             className="flex items-center justify-between"
+            data-testid={`language-menu-item-${value}`}
           >
             <span>{t(`language.toggle.${value}`)}</span>
-            {i18n.resolvedLanguage === value && <Check className="h-4 w-4 ml-2" />}
+            {i18n.resolvedLanguage === value && <Check className="h-4 w-4 ml-2" data-testid="check-icon" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
