@@ -7,7 +7,7 @@
 </div>
 
 <p align="center">
-  ⚡️ A lightning-fast, privacy-friendly QR code generator built with <strong>Vite</strong>, <strong>React</strong>, <strong>Tailwind</strong>, and <strong>Shadcn UI</strong>.
+  ⚡️ A lightning-fast, React-based website for generating QR codes built with <strong>Vite</strong>, <strong>React</strong>, <strong>Tailwind</strong>, and <strong>Shadcn UI</strong>.
 </p>
 
 ---
@@ -90,13 +90,13 @@ feat: add dark mode toggle
 
 ## 📦 Tech Stack
 
-- ⚛️ [React](https://reactjs.org/)
-- ⚡ [Vite](https://vitejs.dev/)
+- ⚛️ [React](https://react.dev/)
+- ⚡ [Vite](https://vite.dev/)
 - 🎨 [Tailwind CSS](https://tailwindcss.com/)
-- 🧱 [Shadcn UI](https://ui.shadcn.dev/)
+- 🧱 [Shadcn UI](https://ui.shadcn.com/)
 - 📦 [npm](https://www.npmjs.com/)
 - 🧪 [Vitest](https://vitest.dev/)
-- ⌛  QR code library TBD
+- 🧩 [kozakdenys' QR Code Styling library](https://github.com/kozakdenys/qr-code-styling)
 
 ---
 
