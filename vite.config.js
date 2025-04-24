@@ -10,7 +10,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "./",
+  base: "/qrisp/",
   test: {
     environment: "jsdom",
     setupFiles: ['./src/tests/setup.js'],
