@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: ^22.12.0
           cache: npm
-      - run: rm -rf node_modules package-lock.json && npm i --legacy-peer-deps
+      - run: rm -rf node_modules package-lock.json && npm i
       - run: npm run build --if-present
       - run: npm test --if-present
       
