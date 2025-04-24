@@ -47,7 +47,7 @@ import { HexColorPicker } from "react-colorful";
 const OptionsCard = () => {
 
   // Theme
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   // Local states
   const [carouselStates, setCarouselStates] = useState({
@@ -56,7 +56,7 @@ const OptionsCard = () => {
     selectedCenterStyle: 0,
   });
 
-  const initialColor = theme === "dark" ? "#ffffff" : "#000000";
+  const initialColor = resolvedTheme === "dark" ? "#ffffff" : "#000000";
 
   const [colors, setColors] = useState({
     dotColor: initialColor,
