@@ -1,9 +1,10 @@
-name: Deploy
+name: qrisp CI/CD
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
@@ -12,28 +13,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-
-      - run: rm -rf node_modules package-lock.json && npm i
-
-      - name: Build project
-        run: npm run build
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ^22.12.0
+          cache: npm
+      - run: rm -rf node_modules package-lock.json && npm i --legacy-peer-deps
+      - run: npm run build --if-present
+      - run: npm test --if-present
+      
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
         with:
           name: production-files
           path: ./dist
-
+  
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Download artifact
@@ -41,8 +39,8 @@ jobs:
         with:
           name: production-files
           path: ./dist
-
-      - name: Deploy to GitHub Pages
+      
+      - name: Deploy to GitHub pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
