@@ -1,6 +1,7 @@
 {
   "name": "qrisp",
   "private": true,
+  "homepage": "https://mmarfat.github.io/qrisp/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
