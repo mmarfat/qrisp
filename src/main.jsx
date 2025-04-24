@@ -2,6 +2,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
+// Redux
+import { Provider } from 'react-redux'; // Import the Provider from react-redux
+import { store } from './store';
+
 // Shadcn
 import { ThemeProvider } from '@/components/theme/theme-provider';
 
@@ -17,8 +21,10 @@ import '@fontsource-variable/inter';
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </StrictMode>
 );

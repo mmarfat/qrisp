@@ -1,9 +1,9 @@
 // React
-import { 
-  useState,
-  useEffect,
-  useCallback,
-} from "react";
+import { useState } from "react";
+
+// Redux
+import { useDispatch } from 'react-redux';
+import { setQrData } from '@/store/slices/qrSlice';
 
 // shadcn
 import {
@@ -46,7 +46,10 @@ import {
 // Utils
 import { TAB_OPTIONS } from "@/components/custom/UserInputCard/settings";
 
-const UserInputCard = ({ onDataChange }) => {
+const UserInputCard = () => {
+
+  // Redux
+  const dispatch = useDispatch();
 
   // Local states
   const [activeTab, setActiveTab] = useState("url")
@@ -62,22 +65,22 @@ const UserInputCard = ({ onDataChange }) => {
   const { t } = useTranslation();
 
   // Handlers
-  const handleDataChange = useCallback((type, data) => {
-    onDataChange({
+  const handleDataChange = (type, data) => {
+    dispatch(setQrData({
       type,
-      payload: data
-    })
-  }, [onDataChange]);
+      payload: data,
+    }))
+  }
 
-  // Effects
-  useEffect(() => {
+  const handleClearEverything = () => {
     setUrlData("");
     setTextData("");
     setSMSData({ phone: "", message: "" });
     setEmailData({ email: "", subject: "", message: "" });
-    setCryptoData({ amount: "", address: "", message: ""});
+    setCryptoData({ amount: "", address: "", message: "" });
     setWifiData({ ssid: "", password: "", encryption: "WPA", hidden: false });
-  }, [activeTab]);
+    dispatch(setQrData({}));
+  }
 
   return (
     <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 flex-1">
@@ -85,7 +88,7 @@ const UserInputCard = ({ onDataChange }) => {
         defaultValue="url" 
         value={activeTab} 
         onValueChange={(value) => {
-          onDataChange({});
+          handleClearEverything();
           setActiveTab(value);
         }}
         className="w-full"

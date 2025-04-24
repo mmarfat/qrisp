@@ -1,3 +1,6 @@
+// Redux
+import { useSelector } from 'react-redux';
+
 // shadcn
 import {
   Card,
@@ -13,9 +16,12 @@ import { QrCode } from "lucide-react"
 // Utils
 import DownloadButton from "@/components/custom/DownloadButton";
 
-const QRCodeCard = ({ qrData }) => {
+const QRCodeCard = () => {
 
   const { t } = useTranslation();
+
+  // Redux
+  const qrData = useSelector((state) => state?.qr?.qrData ?? {});
 
   console.log(qrData);
 
