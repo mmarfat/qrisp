@@ -48,7 +48,14 @@
       "examplemessage": "Transaction message"
     },
     "wifi": {
-
+      "networkname": "Network Name (SSID)",
+      "networkplaceholder": "Your Wifi network name",
+      "password": "Password",
+      "passwordplaceholder": "WiFi password",
+      "encryption": "Encryption",
+      "wpa": "WPA/WPA2",
+      "wep": "WEP",
+      "hidden": "Hidden Network"
     },
     "sms": {
       "phonenumber": "Phone Number",

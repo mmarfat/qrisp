@@ -14,6 +14,14 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 
+import {
+  Select,
+  SelectItem,
+  SelectValue,
+  SelectContent,
+  SelectTrigger,
+} from "@/components/ui/select"
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -169,6 +177,57 @@ const UserInputCard = () => {
             </div>
           </TabsContent>
 
+          <TabsContent value="wifi" className="mt-0 flex-1 flex flex-col">
+            <div className="space-y-5 flex-1">
+              <div className="space-y-3">
+                <Label htmlFor="wifi-ssid" className="text-sm font-medium">
+                  {t("userinput.wifi.networkname")}
+                </Label>
+                <Input
+                  id="wifi-ssid"
+                  placeholder={t("userinput.wifi.networkplaceholder")}
+                  className="h-11 transition-all focus-visible:ring-offset-2"
+                />
+              </div>
+              <div className="space-y-3">
+                <Label htmlFor="wifi-password" className="text-sm font-medium">
+                  {t("userinput.wifi.password")}
+                </Label>
+                <Input
+                  id="wifi-password"
+                  type="password"
+                  placeholder={t("userinput.wifi.passwordplaceholder")}
+                  className="h-11 transition-all focus-visible:ring-offset-2"
+                />
+              </div>
+              <div className="space-y-3">
+                <Label className="text-sm font-medium">
+                  {t("userinput.wifi.encryption")}
+                </Label>
+                <Select defaultValue="WPA">
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue value="WPA" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="WPA">{t("userinput.wifi.wpa")}</SelectItem>
+                    <SelectItem value="WEP">{t("userinput.wifi.wep")}</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="flex items-center space-x-2 pt-2">
+                <input
+                  type="checkbox"
+                  id="wifi-hidden"
+                  className="h-4 w-4 rounded border-gray-300 text-primary accent-primary"
+                />
+                <Label htmlFor="wifi-hidden" className="text-sm font-medium">
+                  {t("userinput.wifi.hidden")}
+                </Label>
+              </div>
+              </div>
+          </TabsContent>
+
           <TabsContent value="sms" className="mt-0">
             <div className="space-y-5">
               <div className="space-y-3">
@@ -204,6 +263,7 @@ const UserInputCard = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <Button
                 variant="outline"
+                onClick={() => setActiveTab("wifi")}
                 className="h-auto flex-col py-7 px-2 gap-3 justify-center items-center border-border hover:bg-accent/40 hover:border-border transition-all"
               >
                 <Wifi className="h-5 w-5" />

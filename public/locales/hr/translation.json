@@ -48,7 +48,14 @@
       "examplemessage": "Transakcijska poruka"
     },
     "wifi": {
-
+      "networkname": "Naziv Mreže (SSID)",
+      "networkplaceholder": "Naziv Vaše WiFi mreže",
+      "password": "Lozinka",
+      "passwordplaceholder": "WiFi lozinka",
+      "encryption": "Enkripcija",
+      "wpa": "WPA/WPA2",
+      "wep": "WEP",
+      "hidden": "Skrivena Mreža"
     },
     "sms": {
       "phonenumber": "Broj mobitela",
