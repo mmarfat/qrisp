@@ -13,4 +13,7 @@ i18next
     interpolation: {
       escapeValue: false,
     },
+    backend: {
+      loadPath: '/qrisp/locales/{{lng}}/translation.json'
+    }
   });
