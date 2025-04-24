@@ -13,9 +13,11 @@ import { QrCode } from "lucide-react"
 // Utils
 import DownloadButton from "@/components/custom/DownloadButton";
 
-const QRCodeCard = () => {
+const QRCodeCard = ({ qrData }) => {
 
   const { t } = useTranslation();
+
+  console.log(qrData);
 
   return (
     <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 gap-2">
@@ -24,7 +26,6 @@ const QRCodeCard = () => {
         {t("qrpreview.qrcode")}
       </div>
       <CardContent className="p-4 pt-2 flex flex-col gap-4 mx-auto">
-        {/* QR Code preview (placeholder) */}
         <div className="flex items-center justify-center h-56 w-56 bg-background/30 rounded-md border border-border/40">
           <p className="text-muted-foreground">{t("qrpreview.qrcode")}</p>
         </div>

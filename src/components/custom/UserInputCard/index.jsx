@@ -1,5 +1,9 @@
 // React
-import { useState } from "react";
+import { 
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 
 // shadcn
 import {
@@ -42,17 +46,50 @@ import {
 // Utils
 import { TAB_OPTIONS } from "@/components/custom/UserInputCard/settings";
 
-const UserInputCard = () => {
+const UserInputCard = ({ onDataChange }) => {
 
   // Local states
   const [activeTab, setActiveTab] = useState("url")
 
+  const [urlData, setUrlData] = useState("");
+  const [textData, setTextData] = useState("");
+  const [smsData, setSMSData] = useState({ phone: "", message: "" });
+  const [emailData, setEmailData] = useState({ email: "", subject: "", message: "" });
+  const [cryptoData, setCryptoData] = useState({ amount: "", address: "", message: ""});
+  const [wifiData, setWifiData] = useState({ ssid: "", password: "", encryption: "WPA", hidden: false });
+
+  // i18n
   const { t } = useTranslation();
+
+  // Handlers
+  const handleDataChange = useCallback((type, data) => {
+    onDataChange({
+      type,
+      payload: data
+    })
+  }, [onDataChange]);
+
+  // Effects
+  useEffect(() => {
+    setUrlData("");
+    setTextData("");
+    setSMSData({ phone: "", message: "" });
+    setEmailData({ email: "", subject: "", message: "" });
+    setCryptoData({ amount: "", address: "", message: ""});
+    setWifiData({ ssid: "", password: "", encryption: "WPA", hidden: false });
+  }, [activeTab]);
 
   return (
     <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 flex-1">
       <Tabs
-        defaultValue="url" value={activeTab} onValueChange={setActiveTab} className="w-full">
+        defaultValue="url" 
+        value={activeTab} 
+        onValueChange={(value) => {
+          onDataChange({});
+          setActiveTab(value);
+        }}
+        className="w-full"
+      >
         <div className="border-b border-border">
           <TabsList className="grid grid-cols-5 w-full h-auto p-2 bg-background">
             {TAB_OPTIONS.map(({ value, label, icon: Icon }) => (
@@ -79,6 +116,12 @@ const UserInputCard = () => {
                 <Input
                   id="url"
                   placeholder={t("userinput.url.exampleurl")}
+                  value={urlData}
+                  onChange={(e) => {
+                    const updated = e.target.value;
+                    setUrlData(updated);
+                    handleDataChange("url", updated);
+                  }}
                   className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -94,6 +137,12 @@ const UserInputCard = () => {
               <Textarea
                 id="text"
                 placeholder={t("userinput.text.exampletext")}
+                value={textData}
+                onChange={(e) => {
+                  const updated = e.target.value;
+                  setTextData(updated);
+                  handleDataChange("text", updated);
+                }}
                 className="min-h-[140px] resize-none transition-all focus-visible:ring-offset-2"
               />
               <p className="text-xs text-muted-foreground mt-1.5">{t("userinput.text.helpertext")}</p>
@@ -112,6 +161,12 @@ const UserInputCard = () => {
                     id="email"
                     type="email"
                     placeholder={t("userinput.email.exampleemail")}
+                    value={emailData.email}
+                    onChange={(e) => {
+                      const updated = { ...emailData, email: e.target.value };
+                      setEmailData(updated);
+                      handleDataChange("email", updated);
+                    }}
                     className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                   />
                 </div>
@@ -123,6 +178,12 @@ const UserInputCard = () => {
                 <Input
                   id="subject"
                   placeholder={t("userinput.email.examplesubject")}
+                  value={emailData.subject}
+                  onChange={(e) => {
+                    const updated = { ...emailData, subject: e.target.value };
+                    setEmailData(updated);
+                    handleDataChange("email", updated);
+                  }}
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -133,6 +194,12 @@ const UserInputCard = () => {
                 <Textarea
                   id="body"
                   placeholder={t("userinput.email.examplemessage")}
+                  value={emailData.message}
+                  onChange={(e) => {
+                    const updated = { ...emailData, message: e.target.value };
+                    setEmailData(updated);
+                    handleDataChange("email", updated);
+                  }}
                   className="min-h-[100px] resize-none transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -150,6 +217,12 @@ const UserInputCard = () => {
                   <Input
                     id="crypto-amount"
                     placeholder={t("userinput.crypto.exampleamount")}
+                    value={cryptoData.amount}
+                    onChange={(e) => {
+                      const updated = { ...cryptoData, amount: e.target.value };
+                      setCryptoData(updated);
+                      handleDataChange("crypto", updated);
+                    }}
                     className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                   />
                 </div>
@@ -161,6 +234,12 @@ const UserInputCard = () => {
                 <Input
                   id="crypto-address"
                   placeholder={t("userinput.crypto.exampleaddress")}
+                  value={cryptoData.address}
+                  onChange={(e) => {
+                    const updated = { ...cryptoData, address: e.target.value };
+                    setCryptoData(updated);
+                    handleDataChange("crypto", updated);
+                  }}
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -171,6 +250,12 @@ const UserInputCard = () => {
                 <Textarea
                   id="crypto-message"
                   placeholder={t("userinput.crypto.examplemessage")}
+                  value={cryptoData.message}
+                  onChange={(e) => {
+                    const updated = { ...cryptoData, message: e.target.value };
+                    setCryptoData(updated);
+                    handleDataChange("crypto", updated);
+                  }}
                   className="min-h-[100px] resize-none transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -186,6 +271,12 @@ const UserInputCard = () => {
                 <Input
                   id="wifi-ssid"
                   placeholder={t("userinput.wifi.networkplaceholder")}
+                  value={wifiData.ssid}
+                  onChange={(e) => {
+                    const updated = { ...wifiData, ssid: e.target.value };
+                    setCryptoData(updated);
+                    handleDataChange("wifi", updated);
+                  }}
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -197,6 +288,12 @@ const UserInputCard = () => {
                   id="wifi-password"
                   type="password"
                   placeholder={t("userinput.wifi.passwordplaceholder")}
+                  value={wifiData.password}
+                  onChange={(e) => {
+                    const updated = { ...wifiData, password: e.target.value };
+                    setCryptoData(updated);
+                    handleDataChange("wifi", updated);
+                  }}
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
@@ -204,7 +301,14 @@ const UserInputCard = () => {
                 <Label className="text-sm font-medium">
                   {t("userinput.wifi.encryption")}
                 </Label>
-                <Select defaultValue="WPA">
+                <Select 
+                  value={wifiData.encryption}
+                  onValueChange={(value) => {
+                    const updated = { ...wifiData, encryption: value };
+                    setWifiData(updated);
+                    handleDataChange("wifi", updated);
+                  }}
+                >
                   <SelectTrigger className="w-[180px]">
                     <SelectValue value="WPA" />
                   </SelectTrigger>
@@ -219,6 +323,12 @@ const UserInputCard = () => {
                 <input
                   type="checkbox"
                   id="wifi-hidden"
+                  checked={wifiData.hidden}
+                  onChange={(e) => {
+                    const updated = { ...wifiData, hidden: e.target.checked };
+                    setWifiData(updated);
+                    handleDataChange("wifi", updated);
+                  }}
                   className="h-4 w-4 rounded border-gray-300 text-primary accent-primary"
                 />
                 <Label htmlFor="wifi-hidden" className="text-sm font-medium">
@@ -239,6 +349,12 @@ const UserInputCard = () => {
                   <Input
                     id="phone"
                     placeholder={t("userinput.sms.examplephone")}
+                    value={smsData.phone}
+                    onChange={(e) => {
+                      const updated = { ...smsData, phone: e.target.value };
+                      setSMSData(updated);
+                      handleDataChange("sms", updated);
+                    }}
                     className="pl-9 h-11 transition-all focus-visible:ring-offset-2"
                   />
                 </div>
@@ -250,6 +366,12 @@ const UserInputCard = () => {
                 <Textarea
                   id="message"
                   placeholder={t("userinput.sms.examplemessage")}
+                  value={smsData.message}
+                  onChange={(e) => {
+                    const updated = { ...smsData, message: e.target.value };
+                    setSMSData(updated);
+                    handleDataChange("sms", updated);
+                  }}
                   className="min-h-[120px] resize-none transition-all focus-visible:ring-offset-2"
                 />
                 <p className="text-xs text-muted-foreground mt-1.5">
