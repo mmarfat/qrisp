@@ -21,9 +21,13 @@ import { DOWNLOAD_OPTIONS } from "@/components/custom/DownloadButton/settings";
 
 const DownloadButton = ({ disabled = false }) => {
 
+  // Local states
   const [isOpen, setIsOpen] = useState(false);
+
+  // i18n
   const { t } = useTranslation();
 
+  // Handlers
   const handleDownload = (format) => {
     setIsOpen(false)
 

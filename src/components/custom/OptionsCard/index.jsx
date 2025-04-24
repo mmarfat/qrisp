@@ -64,7 +64,6 @@ const OptionsCard = () => {
     centerColor: initialColor,
   });
 
-  // Add separate state for input values
   const [inputValues, setInputValues] = useState({
     dotColor: initialColor,
     borderColor: initialColor,
@@ -77,6 +76,7 @@ const OptionsCard = () => {
     centerColor: false,
   });
 
+  // i18n
   const { t } = useTranslation();
 
   // Effects
@@ -107,7 +107,6 @@ const OptionsCard = () => {
       [colorType]: color,
     }));
 
-    // Clear any error when using the color picker
     setInputErrors((prevErrors) => ({
       ...prevErrors,
       [colorType]: false,
@@ -115,13 +114,11 @@ const OptionsCard = () => {
   };
 
   const handleColorInputChange = (colorType, value) => {
-    // Always update the input value state
     setInputValues((prevValues) => ({
       ...prevValues,
       [colorType]: value,
     }));
     
-    // Validate the hex color format using a simple regex
     const hexColorRegex = /^#[0-9A-Fa-f]{6}$/i;
     if (hexColorRegex.test(value)) {
       setColors((prevColors) => ({

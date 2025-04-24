@@ -21,6 +21,7 @@ import { LANGUAGES } from "@/components/custom/LanguageToggle/settings";
 
 const LanguageToggle = () => {
 
+  // i18n
   const { t, i18n } = useTranslation();
 
   return (

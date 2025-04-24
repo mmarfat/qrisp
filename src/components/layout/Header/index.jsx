@@ -1,3 +1,4 @@
+// Custom components
 import Logo from "@/components/theme/logo";
 import ThemeToggle from "@/components/custom/ThemeToggle";
 import LanguageToggle from '@/components/custom/LanguageToggle';

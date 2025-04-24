@@ -18,10 +18,11 @@ import DownloadButton from "@/components/custom/DownloadButton";
 
 const QRCodeCard = () => {
 
-  const { t } = useTranslation();
-
   // Redux
   const qrData = useSelector((state) => state?.qr?.qrData ?? {});
+
+  // i18n
+  const { t } = useTranslation();
 
   console.log(qrData);
 
@@ -33,7 +34,7 @@ const QRCodeCard = () => {
       </div>
       <CardContent className="p-4 pt-2 flex flex-col gap-4 mx-auto">
         <div className="flex items-center justify-center h-56 w-56 bg-background/30 rounded-md border border-border/40">
-          <p className="text-muted-foreground">{t("qrpreview.qrcode")}</p>
+          <p className="text-muted-foreground">{t("qrpreview.qrcode")+qrData?.payload}</p>
         </div>
         <DownloadButton />
       </CardContent>

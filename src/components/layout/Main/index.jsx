@@ -1,9 +1,10 @@
+// Custom components
 import QRCodeCard from "@/components/custom/QRCodeCard";
 import OptionsCard from "@/components/custom/OptionsCard";
 import UserInputCard from "@/components/custom/UserInputCard";
 
+// i18n
 import { useTranslation } from "react-i18next";
-
 
 const Main = () => {
 
