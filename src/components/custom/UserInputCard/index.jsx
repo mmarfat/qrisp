@@ -54,8 +54,8 @@ const UserInputCard = () => {
   // Local states
   const [activeTab, setActiveTab] = useState("url")
 
-  const [urlData, setUrlData] = useState("");
-  const [textData, setTextData] = useState("");
+  const [urlData, setUrlData] = useState({ url: "" });
+  const [textData, setTextData] = useState({ text: "" });
   const [smsData, setSMSData] = useState({ phone: "", message: "" });
   const [emailData, setEmailData] = useState({ email: "", subject: "", message: "" });
   const [cryptoData, setCryptoData] = useState({ amount: "", address: "", message: ""});
@@ -66,15 +66,20 @@ const UserInputCard = () => {
 
   // Handlers
   const handleDataChange = (type, data) => {
-    dispatch(setQrData({
-      type,
-      payload: data,
-    }))
-  }
+    const isEmpty = (data) => {
+      return Object.values(data).every(value => value === "");
+    };
+  
+    if (isEmpty(data)) {
+      dispatch(setQrData({}));
+    } else {
+      dispatch(setQrData({ type, payload: data }));
+    }
+  };
 
   const handleClearEverything = () => {
-    setUrlData("");
-    setTextData("");
+    setUrlData({ url: "" });
+    setTextData({ text: "" });
     setSMSData({ phone: "", message: "" });
     setEmailData({ email: "", subject: "", message: "" });
     setCryptoData({ amount: "", address: "", message: "" });
@@ -119,9 +124,9 @@ const UserInputCard = () => {
                 <Input
                   id="url"
                   placeholder={t("userinput.url.exampleurl")}
-                  value={urlData}
+                  value={urlData.url}
                   onChange={(e) => {
-                    const updated = e.target.value;
+                    const updated = { url: e.target.value }
                     setUrlData(updated);
                     handleDataChange("url", updated);
                   }}
@@ -140,9 +145,9 @@ const UserInputCard = () => {
               <Textarea
                 id="text"
                 placeholder={t("userinput.text.exampletext")}
-                value={textData}
+                value={textData.text}
                 onChange={(e) => {
-                  const updated = e.target.value;
+                  const updated = { text: e.target.value }
                   setTextData(updated);
                   handleDataChange("text", updated);
                 }}
