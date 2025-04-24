@@ -12,5 +12,5 @@ i18next
     debug: import.meta.env.MODE === 'development',
     interpolation: {
       escapeValue: false,
-    },
+    }
   });
