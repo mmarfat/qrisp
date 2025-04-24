@@ -1,7 +1,6 @@
 {
   "name": "qrisp",
   "private": true,
-  "homepage": "https://www.theqrisp.com/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

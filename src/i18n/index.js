@@ -12,8 +12,5 @@ i18next
     debug: import.meta.env.MODE === 'development',
     interpolation: {
       escapeValue: false,
-    },
-    backend: {
-      loadPath: '/locales/{{lng}}/translation.json'
     }
   });
