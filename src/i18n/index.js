@@ -14,6 +14,6 @@ i18next
       escapeValue: false,
     },
     backend: {
-      loadPath: '/qrisp/locales/{{lng}}/translation.json'
+      loadPath: '/locales/{{lng}}/translation.json'
     }
   });
