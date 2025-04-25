@@ -36,7 +36,7 @@ const DownloadButton = ({ disabled = false }) => {
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen} modal={false}>
-      <DropdownMenuTrigger asChild className="max-w-56">
+      <DropdownMenuTrigger asChild>
         <Button variant="default" size="sm" disabled={disabled}>
           <Download className="h-4 w-4" />
           {t("qrpreview.download")}

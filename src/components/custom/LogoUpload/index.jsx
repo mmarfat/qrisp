@@ -102,7 +102,7 @@ const LogoUpload = () => {
 
   return logo ? (
     <>
-      <div className="border rounded-lg p-4 text-center relative w-[22.5rem] h-full flex items-center justify-center">
+      <div className="border rounded-lg p-4 text-center relative h-full flex items-center justify-center">
         <div className="absolute top-2 right-2 z-10">
           <Button
             variant="outline"
@@ -126,8 +126,8 @@ const LogoUpload = () => {
     <>
       <div 
         className={`
-          border-2 border-dashed border-border rounded-lg p-6 text-center flex-1 flex items-center justify-center
-          transition-colors w-[22.5rem] ${isDragging ? "border-primary bg-primary/5" : "border-border"}`
+          border-2 border-dashed border-border rounded-lg p-6 text-center flex items-center justify-center
+          transition-colors flex-1 ${isDragging ? "border-primary bg-primary/5" : "border-border"}`
         }
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -148,7 +148,7 @@ const LogoUpload = () => {
           {error && <p className="text-xs text-destructive mt-2">{error}</p>}
         </div>
       </div>
-      <p className="text-xs text-muted-foreground mb-0">{t("options.recommendedlogosize")}</p>
+      <p className="text-xs text-muted-foreground mb-0 text-center">{t("options.recommendedlogosize")}</p>
       <input
         ref={fileInputRef}
         type="file"

@@ -19,7 +19,7 @@ const Main = () => {
       </div>
       <div className="w-full">
         <div className="flex flex-col justify-center gap-4">
-          <div className="flex flex-col flex-col-reverse gap-4 md:flex-row md:flex-row">
+          <div className="flex flex-col flex-col-reverse gap-4 md:flex-row">
             <UserInputCard />
             <QRCodeCard />
           </div>

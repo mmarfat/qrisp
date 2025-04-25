@@ -3,7 +3,7 @@ const Logo = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 275 275"
-      className="h-9 w-9 text-black dark:text-white"
+      className="h-7 w-7 text-black dark:text-white sm:h-9 sm:w-9"
     >
       <rect x="15" y="15" width="80" height="80" stroke="currentColor" fill="none" strokeWidth="30px" strokeLinejoin="bevel" />
       <rect x="180" y="15" width="80" height="80" stroke="currentColor" fill="none" strokeWidth="30px" strokeLinejoin="bevel" />

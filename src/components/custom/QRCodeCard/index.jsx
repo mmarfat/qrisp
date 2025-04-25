@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 // shadcn/ui
@@ -20,8 +20,44 @@ import DownloadButton from "@/components/custom/DownloadButton";
 import QRCodeStyling from "qr-code-styling";
 
 const QRCodeCard = () => {
-  const qrRef = useRef(null);
-  const qrInstance = useRef(null);
+
+  // Local state
+  const [options] = useState({
+    width: 200,
+    height: 200,
+    type: 'svg',
+    data: 'https://www.theqrisp.com',
+    image: 'logo.svg',
+    qrOptions: {
+      typeNumber: 0,
+      mode: 'Byte',
+      errorCorrectionLevel: 'Q'
+    },
+    imageOptions: {
+      hideBackgroundDots: true,
+      imageSize: 0.35,
+      margin: 4,
+      crossOrigin: 'anonymous',
+    },
+    dotsOptions: {
+      color: "#000000",
+      type: "rounded"
+    },
+    backgroundOptions: {
+      color: '#FFFFFF',
+    },
+    cornersSquareOptions: {
+      color: '#000000',
+      type: 'extra-rounded'
+    },
+    cornersDotOptions: {
+      color: '#000000',
+      type: 'dot'
+    }
+  });
+
+  const [qrCode] = useState(new QRCodeStyling(options));
+  const ref = useRef(null);
 
   // Redux state
   const qrData = useSelector((state) => state?.qr?.qrData ?? {});
@@ -30,56 +66,65 @@ const QRCodeCard = () => {
   // i18n
   const { t } = useTranslation();
 
-  // Initialize QR instance
-  useEffect(() => {
-    qrInstance.current = new QRCodeStyling({
-      width: 200,
-      height: 200,
-      type: "svg",
-      image: logo || undefined,
-      dotsOptions: {
-        color: "#000000",
-        type: "rounded"
-      },
-      backgroundOptions: {
-        color: "transparent"
-      },
-      imageOptions: {
-        crossOrigin: "anonymous",
-        margin: 4
-      }
-    });
-
-    if (qrRef.current) {
-      qrInstance.current.append(qrRef.current);
-    }
-  }, []);
-
   // Update QR on data/logo change
   useEffect(() => {
-    if (qrInstance.current) {
-      const value = typeof qrData.payload === "string"
-        ? qrData.payload
-        : JSON.stringify(qrData.payload);
-
-      qrInstance.current.update({
-        data: value || "",
-        image: logo || undefined
-      });
+    if (ref.current) {
+      qrCode.append(ref.current);
     }
-  }, [qrData, logo]);
+  }, [qrCode, ref]);
+
+  useEffect(() => {
+    if (!qrCode) return;
+    qrCode.update(options);
+  }, [qrCode, options]);
+
+  // On QR data change and/or logo change update the QRCode
+  useEffect(() => {
+    let data = '';
+
+    switch(qrData.type) {
+      case "url":
+        data = qrData.payload.url;
+        break;
+      case "text":
+        data = qrData.payload.text;
+        break;
+      case "sms":
+        data = `SMSTO:${qrData.payload.phone}:${qrData.payload.message}`;
+        break;
+      case "email":
+        data = `mailto:${qrData.payload.email}?subject=${encodeURIComponent(qrData.payload.subject)}&body=${encodeURIComponent(qrData.payload.message)}`;
+        break;
+      case "crypto":
+        data = `bitcoin:${qrData.payload.address}?amount=${qrData.payload.amount}${qrData.payload.message ? `&message=${encodeURIComponent(qrData.payload.message)}` : ''}`;
+        break;
+      case "wifi":
+        data = `WIFI:T:${qrData.payload.encryption};S:${qrData.payload.ssid};P:${qrData.password};H:${qrData.payload.hidden || false};;`;
+        break;
+      default:
+        data = "https://www.theqrisp.com"
+    }
+  
+    const updatedOptions = {
+      ...options,
+      data,
+      image: logo || (data === "https://www.theqrisp.com" ? 'logo.svg' : null),
+    };
+  
+    qrCode.update(updatedOptions);
+  }, [qrData, logo, options, qrCode])
 
   return (
-    <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 gap-2">
+    <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 gap-2 flex-1">
       <div className="flex items-center gap-2 border-b border-border p-4.75 font-medium text-sm tracking-tight">
         <QrCode className="h-4 w-4" />
         {t("qrpreview.qrcode")}
       </div>
-      <CardContent className="p-4 pt-2 flex flex-col gap-4 mx-auto">
-        <div className="flex items-center justify-center h-56 w-56 bg-background/30 rounded-md border border-border/40">
-          <div ref={qrRef} className="scale-[1.3]" />
+      <CardContent className="px-4 flex flex-col gap-2 pb-2 h-full">
+        <div className="flex items-center w-full h-full justify-center bg-background/30 rounded-md border border-border/40 pt-2 pb-2">
+          <div ref={ref} />
         </div>
-        <DownloadButton qrRef={qrInstance} />
+        <DownloadButton qrCode={qrCode} />
       </CardContent>
     </Card>
   );

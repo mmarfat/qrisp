@@ -73,21 +73,7 @@ const UserInputCard = () => {
     if (isEmpty(data)) {
       dispatch(setQrData({}));
     } else {
-      let payload;
-      if (type === "email") {
-        const { email, subject, message } = data;
-        payload = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject || '')}&body=${encodeURIComponent(message || '')}`;
-      } else if (type === "text") {
-        payload = data.text || "";
-      } else if (type === "sms") {
-        const { phone, message } = data;
-        // payload = `sms:${encodeURIComponent(phone)}${message ? `:${encodeURIComponent(message)}` : ''}`;
-        // Alternatively, some systems might prefer 'smsto:'
-        payload = `smsto:${encodeURIComponent(phone)}${message ? `:${encodeURIComponent(message)}` : ''}`;
-      } else {
-        payload = data; // For other types, keep the data as is
-      }
-      dispatch(setQrData({ type, payload }));
+      dispatch(setQrData({ type, payload: data }));
     }
   };
 
@@ -102,7 +88,7 @@ const UserInputCard = () => {
   }
 
   return (
-    <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 flex-1">
+    <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 flex-2">
       <Tabs
         defaultValue="url" 
         value={activeTab} 

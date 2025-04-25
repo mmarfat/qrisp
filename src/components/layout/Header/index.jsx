@@ -11,10 +11,10 @@ const Header = () => {
         <button
           onClick={() => window.location.href = "/"}
           aria-label="Go to home page"
-          className="flex items-end gap-2"
+          className="flex items-center gap-2"
         >
           <Logo />
-          <p className="font-black text-4xl text-primary line-height-1 dark:text-primaryDark">
+          <p className="font-black text-3xl text-primary dark:text-primaryDark sm:text-4xl leading-[unset]">
             qrisp.
           </p>
         </button>

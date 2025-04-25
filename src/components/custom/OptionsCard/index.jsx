@@ -42,6 +42,7 @@ import {
 
 // Utils
 import { HexColorPicker } from "react-colorful";
+import { DOT_OPTIONS,  } from "./settings";
 
 
 const OptionsCard = () => {
@@ -144,8 +145,8 @@ const OptionsCard = () => {
         {t("options.options")}
       </div>
       <CardContent className="p-4 pt-2 space-y-6">
-        <div className="flex flex-col gap-6 sm:flex-row">
-          <div className="flex-1 flex flex-col gap-4">
+        <div className="flex flex-col gap-6 md:flex-row">
+          <div className="flex-2 flex flex-col gap-4">
             <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium">{t("options.dotstyle")}</Label>
@@ -324,7 +325,7 @@ const OptionsCard = () => {
             </div>
           </div>
 
-          <div className="space-y-3 flex flex-col">
+          <div className="space-y-3 flex flex-col flex-1">
             <Label htmlFor="logo" className="text-sm font-medium mb-[.5rem]">
               {t("options.logo")}
             </Label>
