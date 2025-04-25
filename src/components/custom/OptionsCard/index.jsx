@@ -261,6 +261,7 @@ const OptionsCard = () => {
               <Carousel
                 opts={{
                   align: "start",
+                  dragFree: true,
                 }}
                 className="w-full"
               >
@@ -320,6 +321,7 @@ const OptionsCard = () => {
               <Carousel
                 opts={{
                   align: "start",
+                  dragFree: true,
                 }}
                 className="w-full"
               >
