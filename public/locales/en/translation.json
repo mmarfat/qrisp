@@ -75,7 +75,7 @@
   "options": {
     "options": "Options",
     "dotstyle": "Dot Style",
-    "borderstyle": "Border Style",
+    "cornerstyle": "Corner Style",
     "centerstyle": "Center Style",
     "logo": "Logo",
     "dragndrop": "Drag & drop or click to upload",

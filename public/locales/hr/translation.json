@@ -75,7 +75,7 @@
   "options": {
     "options": "Postavke",
     "dotstyle": "Izgled Točkica",
-    "borderstyle": "Izgled Obruba",
+    "cornerstyle": "Izgled Kuteva",
     "centerstyle": "Izgled Središta",
     "logo": "Logotip",
     "dragndrop": "Povucite i ispustite ili kliknite za prijenos",

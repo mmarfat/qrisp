@@ -53,7 +53,7 @@ const OptionsCard = () => {
   // Local states
   const [carouselStates, setCarouselStates] = useState({
     selectedDotStyle: 0,
-    selectedBorderStyle: 0,
+    selectedCornerStyle: 0,
     selectedCenterStyle: 0,
   });
 
@@ -61,19 +61,19 @@ const OptionsCard = () => {
 
   const [colors, setColors] = useState({
     dotColor: initialColor,
-    borderColor: initialColor,
+    cornerColor: initialColor,
     centerColor: initialColor,
   });
 
   const [inputValues, setInputValues] = useState({
     dotColor: initialColor,
-    borderColor: initialColor,
+    cornerColor: initialColor,
     centerColor: initialColor,
   });
 
   const [inputErrors, setInputErrors] = useState({
     dotColor: false,
-    borderColor: false,
+    cornerColor: false,
     centerColor: false,
   });
 
@@ -84,7 +84,7 @@ const OptionsCard = () => {
   useEffect(() => {
     setColors({
       dotColor: initialColor,
-      borderColor: initialColor,
+      cornerColor: initialColor,
       centerColor: initialColor,
     });
   }, [initialColor])
@@ -208,7 +208,7 @@ const OptionsCard = () => {
 
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <Label className="text-sm font-medium">{t("options.borderstyle")}</Label>
+                <Label className="text-sm font-medium">{t("options.cornerstyle")}</Label>
                 <Popover>
                   <PopoverTrigger>
                     <div className="cursor-pointer">
@@ -216,14 +216,14 @@ const OptionsCard = () => {
                     </div>
                   </PopoverTrigger>
                   <PopoverContent side="right" className="w-full">
-                    <HexColorPicker color={colors.borderColor} onChange={(color) => handleColorChange("borderColor", color)} className="w-full!" />
+                    <HexColorPicker color={colors.cornerColor} onChange={(color) => handleColorChange("cornerColor", color)} className="w-full!" />
                     <div className="flex flex-col gap-2 mt-4">
                       <Input
-                        value={inputValues.borderColor}
-                        onChange={(e) => handleColorInputChange("borderColor", e.target.value)}
-                        className={inputErrors.borderColor ? "border-red-500 focus-visible:ring-red-500" : ""}
+                        value={inputValues.cornerColor}
+                        onChange={(e) => handleColorInputChange("cornerColor", e.target.value)}
+                        className={inputErrors.cornerColor ? "border-red-500 focus-visible:ring-red-500" : ""}
                       />
-                      {inputErrors.borderColor && (
+                      {inputErrors.cornerColor && (
                         <p className="text-red-500 text-xs">
                           {t("colorpicker.invalidformat")}
                         </p>
@@ -243,14 +243,14 @@ const OptionsCard = () => {
                     <CarouselItem
                       key={index}
                       className="md:basis-1/2 lg:basis-1/3"
-                      onClick={() => handleCarouselChange("selectedBorderStyle", index)}
+                      onClick={() => handleCarouselChange("selectedCornerStyle", index)}
                     >
                       <div>
-                        <Card className={`flex items-center ${carouselStates.selectedBorderStyle === index ? "border-2 border-primary" : ""} cursor-pointer`}>
+                        <Card className={`flex items-center ${carouselStates.selectedCornerStyle === index ? "border-2 border-primary" : ""} cursor-pointer`}>
                           <CardContent className="flex items-center justify-center h-8 w-8">
                           <span 
                             className="text-2xl font-semibold"
-                            style={{ color: colors?.borderColor ?? 'inherit' }}
+                            style={{ color: colors?.cornerColor ?? 'inherit' }}
                           >
                             {index + 1}
                           </span>
