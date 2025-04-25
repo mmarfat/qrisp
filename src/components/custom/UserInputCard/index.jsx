@@ -64,16 +64,30 @@ const UserInputCard = () => {
   // i18n
   const { t } = useTranslation();
 
-  // Handlers
+
   const handleDataChange = (type, data) => {
     const isEmpty = (data) => {
       return Object.values(data).every(value => value === "");
     };
-  
+
     if (isEmpty(data)) {
       dispatch(setQrData({}));
     } else {
-      dispatch(setQrData({ type, payload: data }));
+      let payload;
+      if (type === "email") {
+        const { email, subject, message } = data;
+        payload = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject || '')}&body=${encodeURIComponent(message || '')}`;
+      } else if (type === "text") {
+        payload = data.text || "";
+      } else if (type === "sms") {
+        const { phone, message } = data;
+        // payload = `sms:${encodeURIComponent(phone)}${message ? `:${encodeURIComponent(message)}` : ''}`;
+        // Alternatively, some systems might prefer 'smsto:'
+        payload = `smsto:${encodeURIComponent(phone)}${message ? `:${encodeURIComponent(message)}` : ''}`;
+      } else {
+        payload = data; // For other types, keep the data as is
+      }
+      dispatch(setQrData({ type, payload }));
     }
   };
 
