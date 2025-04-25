@@ -62,11 +62,11 @@ const QRCodeCard = () => {
   // Redux state
   const qrData = useSelector((state) => state?.qr?.qrData ?? {});
   const logo = useSelector((state) => state?.qr?.logo ?? null);
+  const qrCustomization = useSelector((state) => state?.qr?.qrCustomization ?? {});
 
   // i18n
   const { t } = useTranslation();
 
-  // Update QR on data/logo change
   useEffect(() => {
     if (ref.current) {
       qrCode.append(ref.current);
@@ -78,7 +78,6 @@ const QRCodeCard = () => {
     qrCode.update(options);
   }, [qrCode, options]);
 
-  // On QR data change and/or logo change update the QRCode
   useEffect(() => {
     let data = '';
 
@@ -109,10 +108,15 @@ const QRCodeCard = () => {
       ...options,
       data,
       image: logo || (data === "https://www.theqrisp.com" ? 'logo.svg' : null),
+      // update customization here..
+      // dotsOptions: {
+      //   color: qrCustomization?.dotOptions?.color,
+      //   type: qrCustomization?.dotOptions?.type
+      // }
     };
   
     qrCode.update(updatedOptions);
-  }, [qrData, logo, options, qrCode])
+  }, [qrData, logo, options, qrCode, qrCustomization])
 
   return (
     <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 gap-2 flex-1">

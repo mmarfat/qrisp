@@ -4,6 +4,10 @@ import {
   useEffect 
 } from "react";
 
+// Redux
+import { useDispatch } from "react-redux";
+import { setQrCustomization } from "@/store/slices/qrSlice";
+
 // shadcn
 import { useTheme } from "next-themes";
 import {
@@ -42,7 +46,7 @@ import {
 
 // Utils
 import { HexColorPicker } from "react-colorful";
-import { DOT_OPTIONS,  } from "./settings";
+import { DOT_OPTIONS, CORNER_CENTER_OPTIONS } from "@/components/custom/OptionsCard/settings";
 
 
 const OptionsCard = () => {
@@ -50,14 +54,17 @@ const OptionsCard = () => {
   // Theme
   const { resolvedTheme } = useTheme();
 
+  // Redux
+  const dispatch = useDispatch();
+
   // Local states
   const [carouselStates, setCarouselStates] = useState({
-    selectedDotStyle: 0,
-    selectedCornerStyle: 0,
-    selectedCenterStyle: 0,
+    selectedDotStyle: DOT_OPTIONS[0],
+    selectedCornerStyle: CORNER_CENTER_OPTIONS[0],
+    selectedCenterStyle: CORNER_CENTER_OPTIONS[0],
   });
 
-  const initialColor = resolvedTheme === "dark" ? "#ffffff" : "#000000";
+  const initialColor = resolvedTheme === "dark" ? "#0000FF" : "#000000"; // temporary blue
 
   const [colors, setColors] = useState({
     dotColor: initialColor,
@@ -88,6 +95,24 @@ const OptionsCard = () => {
       centerColor: initialColor,
     });
   }, [initialColor])
+
+  useEffect(() => {
+    const customization = {
+      dotOptions: {
+        type: carouselStates.selectedDotStyle,
+        color: colors.dotColor,
+      },
+      cornerOptions: {
+        type: carouselStates.selectedCornerStyle,
+        color: colors.cornerColor,
+      },
+      centerOptions: {
+        type: carouselStates.selectedCenterStyle,
+        color: colors.centerColor,
+      },
+    };
+    dispatch(setQrCustomization(customization));
+  }, [carouselStates, colors, dispatch]);
 
   // Handlers
   const handleCarouselChange = (type, index) => {
@@ -180,20 +205,20 @@ const OptionsCard = () => {
                 className="w-full"
               >
                 <CarouselContent className="pl-px pr-px">
-                  {Array.from({ length: 5 }).map((_, index) => (
+                  {(DOT_OPTIONS || []).map((value) => (
                     <CarouselItem
-                      key={index}
-                      className="md:basis-1/2 lg:basis-1/3"
-                      onClick={() => handleCarouselChange("selectedDotStyle", index)}
+                      key={value}
+                      className="basis-1/3 md:basis-1/4 lg:basis-1/5"
+                      onClick={() => handleCarouselChange("selectedDotStyle", value)}
                     >
                       <div>
-                        <Card className={`flex items-center ${carouselStates.selectedDotStyle === index ? "border-2 border-primary" : ""} cursor-pointer`}>
+                        <Card className={`flex items-center ${carouselStates.selectedDotStyle === value ? "border-2 border-primary" : ""} cursor-pointer`}>
                           <CardContent className="flex items-center justify-center h-8 w-8">
                             <span 
                               className="text-2xl font-semibold"
                               style={{ color: colors?.dotColor ?? 'inherit' }}
                             >
-                              {index + 1}
+                              {value}
                             </span>
                           </CardContent>
                         </Card>
@@ -239,20 +264,20 @@ const OptionsCard = () => {
                 className="w-full"
               >
                 <CarouselContent className="pl-px pr-px">
-                  {Array.from({ length: 5 }).map((_, index) => (
+                  {(CORNER_CENTER_OPTIONS || []).map((value) => (
                     <CarouselItem
-                      key={index}
-                      className="md:basis-1/2 lg:basis-1/3"
-                      onClick={() => handleCarouselChange("selectedCornerStyle", index)}
+                      key={value}
+                      className="basis-1/3 md:basis-1/4 lg:basis-1/5"
+                      onClick={() => handleCarouselChange("selectedCornerStyle", value)}
                     >
                       <div>
-                        <Card className={`flex items-center ${carouselStates.selectedCornerStyle === index ? "border-2 border-primary" : ""} cursor-pointer`}>
+                        <Card className={`flex items-center ${carouselStates.selectedCornerStyle === value ? "border-2 border-primary" : ""} cursor-pointer`}>
                           <CardContent className="flex items-center justify-center h-8 w-8">
                           <span 
                             className="text-2xl font-semibold"
                             style={{ color: colors?.cornerColor ?? 'inherit' }}
                           >
-                            {index + 1}
+                            {value}
                           </span>
                           </CardContent>
                         </Card>
@@ -298,20 +323,20 @@ const OptionsCard = () => {
                 className="w-full"
               >
                 <CarouselContent className="pl-px pr-px">
-                  {Array.from({ length: 5 }).map((_, index) => (
+                  {(CORNER_CENTER_OPTIONS || []).map((value) => (
                     <CarouselItem
-                      key={index}
-                      className="md:basis-1/2 lg:basis-1/3"
-                      onClick={() => handleCarouselChange("selectedCenterStyle", index)}
+                      key={value}
+                      className="basis-1/3 md:basis-1/4 lg:basis-1/5"
+                      onClick={() => handleCarouselChange("selectedCenterStyle", value)}
                     >
                       <div>
-                        <Card className={`flex items-center ${carouselStates.selectedCenterStyle === index ? "border-2 border-primary" : ""} cursor-pointer`}>
+                        <Card className={`flex items-center ${carouselStates.selectedCenterStyle === value ? "border-2 border-primary" : ""} cursor-pointer`}>
                           <CardContent className="flex items-center justify-center h-8 w-8">
                           <span 
                             className="text-2xl font-semibold"
                             style={{ color: colors?.centerColor ?? 'inherit' }}
                           >
-                            {index + 1}
+                            {value}
                           </span>
                           </CardContent>
                         </Card>
