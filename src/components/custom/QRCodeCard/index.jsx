@@ -20,6 +20,7 @@ const QRCodeCard = () => {
 
   // Redux
   const qrData = useSelector((state) => state?.qr?.qrData ?? {});
+  const logo = useSelector((state) => state?.qr?.logo ?? null);
 
   // i18n
   const { t } = useTranslation();
@@ -27,6 +28,8 @@ const QRCodeCard = () => {
   console.log("QR data: ", qrData);
   console.log("QR data type: ", qrData?.type);
   console.log("QR data payload: ", qrData?.payload);
+
+  console.log(logo);
 
   return (
     <Card className="border-border text-card-foreground overflow-hidden backdrop-blur-sm bg-card/30 py-0 gap-2">

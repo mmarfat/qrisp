@@ -81,7 +81,12 @@
     "dragndrop": "Drag & drop or click to upload",
     "logofiletypes": "PNG, JPG or SVG (max. 2MB)",
     "uploadlogo": "Upload Logo",
-    "recommendedlogosize": "Recommended size: 100×100px, transparent background"
+    "recommendedlogosize": "Recommended size: 100×100px, transparent background",
+    "validlogotype": "Please upload a PNG, JPG, or SVG file",
+    "filetoobig": "File size must be less than 2MB",
+    "removelogo": "Remove logo",
+    "logowillbecentered": "Logo will be centered in your QR code",
+    "uploadedlogo": "Uploaded logo"
   },
   "colorpicker": {
     "invalidformat": "Invalid color format (use #ffffff)"

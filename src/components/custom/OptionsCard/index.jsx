@@ -27,17 +27,17 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+
+// Components
+import LogoUpload from "@/components/custom/LogoUpload";
 
 // i18n
 import { useTranslation } from "react-i18next";
 
 // Icons
 import {
-  Upload,
   Palette,
   Settings,
-  ImageIcon,
 } from "lucide-react"
 
 // Utils
@@ -325,25 +325,10 @@ const OptionsCard = () => {
           </div>
 
           <div className="space-y-3 flex flex-col">
-            <Label htmlFor="logo" className="text-sm font-medium">
+            <Label htmlFor="logo" className="text-sm font-medium mb-[.5rem]">
               {t("options.logo")}
             </Label>
-            <div className="border-2 border-dashed border-border rounded-lg p-6 text-center flex-1 flex items-center justify-center">
-              <div className="flex flex-col items-center justify-center gap-2">
-                <div className="h-12 w-12 rounded-full bg-muted/50 flex items-center justify-center">
-                  <ImageIcon className="h-6 w-6 text-muted-foreground" />
-                </div>
-                <div className="space-y-1">
-                  <p className="text-sm font-medium">{t("options.dragndrop")}</p>
-                  <p className="text-xs text-muted-foreground">{t("options.logofiletypes")}</p>
-                </div>
-                <Button variant="outline" size="sm" className="mt-2">
-                  <Upload className="h-4 w-4 mr-2" />
-                  {t("options.uploadlogo")}
-                </Button>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground">{t("options.recommendedlogosize")}</p>
+            <LogoUpload />
           </div>
         </div>
       </CardContent>

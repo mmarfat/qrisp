@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   qrData: {},
+  logo: null,
 };
 
 const qrSlice = createSlice({
@@ -11,8 +12,14 @@ const qrSlice = createSlice({
     setQrData: (state, action) => {
       state.qrData = action.payload;
     },
+    setLogoRedux: (state, action) => {
+      state.logo = action.payload;
+    },
+    removeLogo: (state) => {
+      state.logo = null;
+    },
   },
 });
 
-export const { setQrData } = qrSlice.actions;
+export const { setQrData, setLogoRedux, removeLogo } = qrSlice.actions;
 export default qrSlice.reducer;
