@@ -323,8 +323,8 @@ const OptionsCard = () => {
                     >
                       <div>
                         <Card className={`flex items-center ${carouselStates.selectedCenterStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer`}>
-                          <CardContent className="flex items-center justify-center h-8 w-8">
-                            {value?.display && <value.display />}
+                          <CardContent className="flex items-center justify-center">
+                            {value?.display && <value.display color={colors.centerColor} />}
                           </CardContent>
                         </Card>
                       </div>

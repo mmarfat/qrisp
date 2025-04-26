@@ -1,10 +1,20 @@
+// Corners
 import CornerDot from "@/components/stylingPreviews/corners/CornerDot"
-import CornerSquare from "@/components/stylingPreviews/corners/CornerSquare"
-import CornerExtraRounded from "@/components/stylingPreviews/corners/CornerExtraRounded"
-import CornerRounded from "@/components/stylingPreviews/corners/CornerRounded"
 import CornerDots from "@/components/stylingPreviews/corners/CornerDots"
-import CornerClassyRounded from "@/components/stylingPreviews/corners/CornerClassyRounded"
 import CornerClassy from "@/components/stylingPreviews/corners/CornerClassy"
+import CornerSquare from "@/components/stylingPreviews/corners/CornerSquare"
+import CornerRounded from "@/components/stylingPreviews/corners/CornerRounded"
+import CornerExtraRounded from "@/components/stylingPreviews/corners/CornerExtraRounded"
+import CornerClassyRounded from "@/components/stylingPreviews/corners/CornerClassyRounded"
+
+// Centers
+import CenterDot from "@/components/stylingPreviews/centers/CenterDot"
+import CenterDots from "@/components/stylingPreviews/centers/CenterDots"
+import CenterSquare from "@/components/stylingPreviews/centers/CenterSquare"
+import CenterRounded from "@/components/stylingPreviews/centers/CenterRounded"
+import CenterExtraRounded from "@/components/stylingPreviews/centers/CenterExtraRounded"
+import CenterClassy from "@/components/stylingPreviews/centers/CenterClassy"
+import CenterClassyRounded from "@/components/stylingPreviews/centers/CenterClassyRounded"
 
 export const DOT_OPTIONS = [
   {
@@ -67,30 +77,30 @@ export const CORNER_OPTIONS = [
 export const CENTER_OPTIONS = [
   {
     "type": "dot",
-    "display": null
+    "display": CenterDot
   },
   {
     "type": "square",
-    "display": null
+    "display": CenterSquare
   },
   {
     "type": "extra-rounded",
-    "display": null
+    "display": CenterExtraRounded
   },
   {
     "type": "rounded",
-    "display": null
+    "display": CenterRounded
   },
   {
     "type": "dots",
-    "display": null,
+    "display": CenterDots,
   },
   {
     "type": "classy",
-    "display": null
+    "display": CenterClassy
   },
   {
     "type": "classy-rounded",
-    "display": null
+    "display": CenterClassyRounded
   }
 ]
