@@ -1,4 +1,3 @@
-// React
 import { useState } from "react";
 
 // shadcn
@@ -19,20 +18,22 @@ import { Download } from "lucide-react";
 // Utils
 import { DOWNLOAD_OPTIONS } from "@/components/custom/DownloadButton/settings";
 
-const DownloadButton = ({ disabled = false }) => {
-
-  // Local states
+const DownloadButton = ({ disabled = false, qrCode }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // i18n
   const { t } = useTranslation();
 
-  // Handlers
   const handleDownload = (format) => {
-    setIsOpen(false)
+    setIsOpen(false);
 
-    console.log(`Downloading in ${format} format`)
-  }
+    if (!qrCode) {
+      console.error("QR Code instance is not available");
+      return;
+    }
+
+    qrCode.download({
+      extension: format,
+    });
+  };
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen} modal={false}>
@@ -52,7 +53,7 @@ const DownloadButton = ({ disabled = false }) => {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 };
 
 export default DownloadButton;
