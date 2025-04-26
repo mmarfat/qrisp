@@ -108,11 +108,18 @@ const QRCodeCard = () => {
       ...options,
       data,
       image: logo || (data === "https://www.theqrisp.com" ? 'logo.svg' : null),
-      // update customization here..
-      // dotsOptions: {
-      //   color: qrCustomization?.dotOptions?.color,
-      //   type: qrCustomization?.dotOptions?.type
-      // }
+      dotsOptions: {
+        color: qrCustomization?.dotOptions?.color,
+        type: qrCustomization?.dotOptions?.type
+      },
+      cornersDotOptions: {
+        color: qrCustomization?.centerOptions?.color,
+        type: qrCustomization?.centerOptions?.type
+      },
+      cornersSquareOptions: {
+        color: qrCustomization?.cornerOptions?.color,
+        type: qrCustomization?.cornerOptions?.type
+      },
     };
   
     qrCode.update(updatedOptions);
