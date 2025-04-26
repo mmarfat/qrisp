@@ -31,4 +31,3 @@ const CornerDots = ({ color }) => (
 );
 
 export default CornerDots;
-

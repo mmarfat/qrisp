@@ -5,4 +5,3 @@ const CornerExtraRounded = ({ color }) => (
 );
 
 export default CornerExtraRounded;
-
