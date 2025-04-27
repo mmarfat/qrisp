@@ -17,7 +17,6 @@ import CenterClassy from "@/components/stylingPreviews/centers/CenterClassy"
 import CenterClassyRounded from "@/components/stylingPreviews/centers/CenterClassyRounded"
 import DotSquare from "@/components/stylingPreviews/dots/DotSquare"
 import DotDots from "@/components/stylingPreviews/dots/DotDots"
-import DotExtraRounded from "@/components/stylingPreviews/dots/DotExtraRounded"
 
 
 export const DOT_OPTIONS = [
@@ -27,7 +26,7 @@ export const DOT_OPTIONS = [
   },
   {
     "type": "extra-rounded",
-    "display": DotExtraRounded
+    "display": null
   },
   {
     "type": "rounded",
