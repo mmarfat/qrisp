@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { setQrCustomization } from "@/store/slices/qrSlice";
 
 // shadcn
-import { useTheme } from "next-themes";
 import {
   Card,
   CardContent,
@@ -50,9 +49,6 @@ import { DOT_OPTIONS, CORNER_OPTIONS, CENTER_OPTIONS } from "@/components/custom
 
 const OptionsCard = () => {
 
-  // Theme
-  const { resolvedTheme } = useTheme();
-
   // Redux
   const dispatch = useDispatch();
 
@@ -63,7 +59,7 @@ const OptionsCard = () => {
     selectedCenterStyle: CENTER_OPTIONS[0]?.type,
   });
 
-  const initialColor = resolvedTheme === "dark" ? "#0000FF" : "#000000"; // temporary blue
+  const initialColor = "#000000";
 
   const [colors, setColors] = useState({
     dotColor: initialColor,
@@ -212,7 +208,7 @@ const OptionsCard = () => {
                       onClick={() => handleCarouselChange("selectedDotStyle", value?.type)}
                     >
                       <div>
-                        <Card className={`flex items-center ${carouselStates.selectedDotStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer`}>
+                        <Card className={`flex items-center ${carouselStates.selectedDotStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer dark:bg-zinc-900`}>
                           <CardContent className="flex items-center justify-center p-0">
                             {value?.display && <value.display />}
                           </CardContent>
@@ -267,7 +263,7 @@ const OptionsCard = () => {
                       onClick={() => handleCarouselChange("selectedCornerStyle", value?.type)}
                     >
                       <div>
-                        <Card className={`flex items-center ${carouselStates.selectedCornerStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer`}>
+                        <Card className={`flex items-center ${carouselStates.selectedCornerStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer dark:bg-zinc-900`}>
                           <CardContent className="flex items-center justify-center p-0">
                             {value?.display && <value.display color={colors.cornerColor} />}
                           </CardContent>
@@ -322,7 +318,7 @@ const OptionsCard = () => {
                       onClick={() => handleCarouselChange("selectedCenterStyle", value?.type)}
                     >
                       <div>
-                        <Card className={`flex items-center ${carouselStates.selectedCenterStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer`}>
+                        <Card className={`flex items-center ${carouselStates.selectedCenterStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer  dark:bg-zinc-900`}>
                           <CardContent className="flex items-center justify-center p-0">
                             {value?.display && <value.display color={colors.centerColor} />}
                           </CardContent>
