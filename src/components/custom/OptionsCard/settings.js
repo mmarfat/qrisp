@@ -45,12 +45,12 @@ export const DOT_OPTIONS = [
 
 export const CORNER_OPTIONS = [
   {
-    "type": "dot",
-    "display": CornerDot
-  },
-  {
     "type": "square",
     "display": CornerSquare
+  },
+  {
+    "type": "dot",
+    "display": CornerDot
   },
   {
     "type": "extra-rounded",
@@ -76,12 +76,12 @@ export const CORNER_OPTIONS = [
 
 export const CENTER_OPTIONS = [
   {
-    "type": "dot",
-    "display": CenterDot
-  },
-  {
     "type": "square",
     "display": CenterSquare
+  },
+  {
+    "type": "dot",
+    "display": CenterDot
   },
   {
     "type": "extra-rounded",
