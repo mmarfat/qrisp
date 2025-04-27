@@ -15,15 +15,19 @@ import CenterRounded from "@/components/stylingPreviews/centers/CenterRounded"
 import CenterExtraRounded from "@/components/stylingPreviews/centers/CenterExtraRounded"
 import CenterClassy from "@/components/stylingPreviews/centers/CenterClassy"
 import CenterClassyRounded from "@/components/stylingPreviews/centers/CenterClassyRounded"
+import DotSquare from "@/components/stylingPreviews/dots/DotSquare"
+import DotDots from "@/components/stylingPreviews/dots/DotDots"
+import DotExtraRounded from "@/components/stylingPreviews/dots/DotExtraRounded"
+
 
 export const DOT_OPTIONS = [
   {
     "type": "square",
-    "display": null
+    "display": DotSquare
   },
   {
     "type": "extra-rounded",
-    "display": null
+    "display": DotExtraRounded
   },
   {
     "type": "rounded",
@@ -31,7 +35,7 @@ export const DOT_OPTIONS = [
   },
   {
     "type": "dots",
-    "display": null,
+    "display": DotDots
   },
   {
     "type": "classy",

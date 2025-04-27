@@ -210,7 +210,7 @@ const OptionsCard = () => {
                       <div>
                         <Card className={`flex items-center ${carouselStates.selectedDotStyle === value?.type ? "border-2 border-primary" : ""} cursor-pointer dark:bg-zinc-900`}>
                           <CardContent className="flex items-center justify-center p-0">
-                            {value?.display && <value.display />}
+                            {value?.display && <value.display color={colors.dotColor} />}
                           </CardContent>
                         </Card>
                       </div>

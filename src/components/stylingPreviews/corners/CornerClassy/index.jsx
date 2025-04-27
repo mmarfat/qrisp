@@ -9,7 +9,7 @@ const CornerClassy = ({ color }) => (
       v-34
       h-34
       z
-    " fill="none" stroke={color || "#000000"} stroke-width="6"/>
+    " fill="none" stroke={color || "#000000"} strokeWidth="6"/>
   </svg>
 );
 
