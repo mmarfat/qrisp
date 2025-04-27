@@ -26,7 +26,6 @@ const DownloadButton = ({ disabled = false, qrCode }) => {
     setIsOpen(false);
 
     if (!qrCode) {
-      console.error("QR Code instance is not available");
       return;
     }
 
@@ -45,7 +44,7 @@ const DownloadButton = ({ disabled = false, qrCode }) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-(--radix-dropdown-menu-trigger-width)">
         {DOWNLOAD_OPTIONS.map(({ value, label, icon: Icon, desc }) => (
-          <DropdownMenuItem key={value} onClick={() => handleDownload(value)}>
+          <DropdownMenuItem key={value} onClick={() => handleDownload(value)} disabled={["eps", "pdf"].includes(value)} className="cursor-pointer">
             {Icon && <Icon className="h-4 w-4" />}
             {label}
             <span className="ml-auto text-muted-foreground text-xs">{t(desc)}</span>
