@@ -282,7 +282,7 @@ const UserInputCard = () => {
                   value={wifiData.ssid}
                   onChange={(e) => {
                     const updated = { ...wifiData, ssid: e.target.value };
-                    setCryptoData(updated);
+                    setWifiData(updated);
                     handleDataChange("wifi", updated);
                   }}
                   className="h-11 transition-all focus-visible:ring-offset-2"
@@ -299,7 +299,7 @@ const UserInputCard = () => {
                   value={wifiData.password}
                   onChange={(e) => {
                     const updated = { ...wifiData, password: e.target.value };
-                    setCryptoData(updated);
+                    setWifiData(updated);
                     handleDataChange("wifi", updated);
                   }}
                   className="h-11 transition-all focus-visible:ring-offset-2"
