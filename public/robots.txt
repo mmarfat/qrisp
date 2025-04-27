@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /node_modules/
 
 # Sitemap
-Sitemap: https://theqrisp.com/sitemap.xml
+Sitemap: https://www.theqrisp.com/sitemap.xml
