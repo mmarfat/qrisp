@@ -330,9 +330,10 @@ const OptionsCard = () => {
             </div>
             
             <div className="space-y-1">
-              <Label className="text-sm font-medium">{t("options.backgroundcolor")}</Label>
+              <Label htmlFor="background-color-input" className="text-sm font-medium">{t("options.backgroundcolor")}</Label>
               <div className="flex items-center gap-[1rem]">
                 <Input
+                  id="background-color-input"
                   value={inputValues.backgroundColor}
                   onChange={(e) => handleColorInputChange("backgroundColor", e.target.value)}
                   className={inputErrors.backgroundColor ? "w-24 border-red-500 focus-visible:ring-red-500" : "w-24"}
