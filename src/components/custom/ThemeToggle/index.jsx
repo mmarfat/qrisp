@@ -11,7 +11,12 @@ import {
   Moon,
 } from 'lucide-react';
 
+
+// i18n
+import { useTranslation } from "react-i18next";
+
 const ThemeToggle = () => {
+
   // Theme
   const { theme, setTheme, resolvedTheme } = useTheme();
 
@@ -22,6 +27,9 @@ const ThemeToggle = () => {
   useEffect(() => {
     setMounted(true); // Mark the component as mounted (Solves hydration issue)
   }, []);
+
+  // i18n
+  const { t } = useTranslation();
 
   // Handlers
   const handleThemeCycle = () => {
@@ -50,12 +58,12 @@ const ThemeToggle = () => {
       size="icon"
       onClick={handleThemeCycle}
       className="rounded-sm dark:border-border/40 dark:bg-background"
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      aria-label={theme === "light" ? t("arialabels.switchtodark") : t("arialabels.switchtolight")}
     >
       {currentTheme === "light" ? (
-        <Moon aria-label="Switch to dark mode" />
+        <Moon />
       ) : (
-        <Sun aria-label="Switch to light mode" />
+        <Sun />
       )}
     </Button>
   );

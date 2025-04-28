@@ -90,5 +90,13 @@
   },
   "colorpicker": {
     "invalidformat": "Invalid color format (use #ffffff)"
+  },
+  "arialabels": {
+    "gotohomepage": "go to home page",
+    "dotstylecolor": "pick dot color",
+    "cornerstylecolor": "pick corner color",
+    "centerstylecolor": "pick center color",
+    "switchtodark": "switch to dark mode",
+    "switchtolight": "switch to light mode"
   }
 }

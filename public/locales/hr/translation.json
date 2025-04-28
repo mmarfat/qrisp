@@ -90,5 +90,13 @@
   },
   "colorpicker": {
     "invalidformat": "Pogrešan format za boju (koristite #ffffff)"
+  },
+  "arialabels": {
+    "gotohomepage": "idi na početnu stranicu",
+    "dotstylecolor": "odaberi boju točkica",
+    "cornerstylecolor": "odaberi boju kuteva",
+    "centerstylecolor": "odaberi boju središta kuteva",
+    "switchtodark": "promijeni na tamnu temu",
+    "switchtolight": "promijeni na svijetlu temu"
   }
 }
