@@ -99,6 +99,8 @@
     "centerstylecolor": "pick center color",
     "switchtodark": "switch to dark mode",
     "switchtolight": "switch to light mode",
-    "changebgcolor": "pick background color"
+    "changebgcolor": "pick background color",
+    "visitgithub": "view qrisp project on github",
+    "ghbutton": "github button"
   }
 }

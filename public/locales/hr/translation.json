@@ -99,6 +99,8 @@
     "centerstylecolor": "odaberi boju središta kuteva",
     "switchtodark": "promijeni na tamnu temu",
     "switchtolight": "promijeni na svijetlu temu",
-    "changebgcolor": "promijeni boju pozadine"
+    "changebgcolor": "promijeni boju pozadine",
+    "visitgithub": "posjetite qrisp projekt na github-u",
+    "ghbutton": "github gumb"
   }
 }
