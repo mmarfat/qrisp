@@ -120,6 +120,9 @@ const QRCodeCard = () => {
         color: qrCustomization?.cornerOptions?.color,
         type: qrCustomization?.cornerOptions?.type
       },
+      backgroundOptions: {
+        color: qrCustomization?.backgroundOptions?.color
+      }
     };
   
     qrCode.update(updatedOptions);

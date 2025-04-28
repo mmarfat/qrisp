@@ -65,31 +65,25 @@ const OptionsCard = () => {
     dotColor: initialColor,
     cornerColor: initialColor,
     centerColor: initialColor,
+    backgroundColor: "#FFFFFF",
   });
 
   const [inputValues, setInputValues] = useState({
     dotColor: initialColor,
     cornerColor: initialColor,
     centerColor: initialColor,
+    backgroundColor: "#FFFFFF",
   });
 
   const [inputErrors, setInputErrors] = useState({
     dotColor: false,
     cornerColor: false,
     centerColor: false,
+    backgroundColor: false
   });
 
   // i18n
   const { t } = useTranslation();
-
-  // Effects
-  useEffect(() => {
-    setColors({
-      dotColor: initialColor,
-      cornerColor: initialColor,
-      centerColor: initialColor,
-    });
-  }, [initialColor])
 
   useEffect(() => {
     const customization = {
@@ -105,6 +99,9 @@ const OptionsCard = () => {
         type: carouselStates.selectedCenterStyle,
         color: colors.centerColor,
       },
+      backgroundOptions: {
+        color: colors.backgroundColor,
+      }
     };
     dispatch(setQrCustomization(customization));
   }, [carouselStates, colors, dispatch]);
@@ -330,6 +327,33 @@ const OptionsCard = () => {
                 <CarouselPrevious className="disabled:pointer-events-auto left-4" />
                 <CarouselNext className="disabled:pointer-events-auto right-4" />
               </Carousel>
+            </div>
+            
+            <div className="space-y-1">
+              <Label className="text-sm font-medium">{t("options.backgroundcolor")}</Label>
+              <div className="flex items-center gap-[1rem]">
+                <Input
+                  value={inputValues.backgroundColor}
+                  onChange={(e) => handleColorInputChange("backgroundColor", e.target.value)}
+                  className={inputErrors.backgroundColor ? "w-24 border-red-500 focus-visible:ring-red-500" : "w-24"}
+                />
+                <Popover>
+                  <PopoverTrigger aria-label={t("arialabels.changebgcolor")}>
+                    <div 
+                      className="cursor-pointer h-9 w-24 rounded-md border border-solid"
+                      style={{ backgroundColor: colors.backgroundColor }}
+                    />
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[20rem]">
+                    <HexColorPicker color={colors.backgroundColor} onChange={(color) => handleColorChange("backgroundColor", color)} className="w-full!" />
+                  </PopoverContent>
+                </Popover>
+              </div>
+              {inputErrors.backgroundColor && (
+                <p className="text-red-500 text-xs">
+                  {t("colorpicker.invalidformat")}
+                </p>
+              )}
             </div>
           </div>
 

@@ -86,7 +86,8 @@
     "filetoobig": "Veličina datoteke mora biti manja od 2 MB",
     "removelogo": "Ukloni logotip",
     "logowillbecentered": "Logotip će biti centriran u Vašem QR kodu",
-    "uploadedlogo": "Preneseni logotip"
+    "uploadedlogo": "Preneseni logotip",
+    "backgroundcolor": "Boja Pozadine"
   },
   "colorpicker": {
     "invalidformat": "Pogrešan format za boju (koristite #ffffff)"
@@ -97,6 +98,7 @@
     "cornerstylecolor": "odaberi boju kuteva",
     "centerstylecolor": "odaberi boju središta kuteva",
     "switchtodark": "promijeni na tamnu temu",
-    "switchtolight": "promijeni na svijetlu temu"
+    "switchtolight": "promijeni na svijetlu temu",
+    "changebgcolor": "promijeni boju pozadine"
   }
 }

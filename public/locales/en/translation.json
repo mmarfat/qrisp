@@ -86,7 +86,8 @@
     "filetoobig": "File size must be less than 2MB",
     "removelogo": "Remove logo",
     "logowillbecentered": "Logo will be centered in your QR code",
-    "uploadedlogo": "Uploaded logo"
+    "uploadedlogo": "Uploaded logo",
+    "backgroundcolor": "Background Color"
   },
   "colorpicker": {
     "invalidformat": "Invalid color format (use #ffffff)"
@@ -97,6 +98,7 @@
     "cornerstylecolor": "pick corner color",
     "centerstylecolor": "pick center color",
     "switchtodark": "switch to dark mode",
-    "switchtolight": "switch to light mode"
+    "switchtolight": "switch to light mode",
+    "changebgcolor": "pick background color"
   }
 }
