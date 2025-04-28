@@ -1,3 +1,11 @@
+// Dots
+import DotDots from "@/components/stylingPreviews/dots/DotDots"
+import DotSquare from "@/components/stylingPreviews/dots/DotSquare"
+import DotClassy from "@/components/stylingPreviews/dots/DotClassy"
+import DotRounded from "@/components/stylingPreviews/dots/DotRounded"
+import DotExtraRounded from "@/components/stylingPreviews/dots/DotExtraRounded"
+import DotClassyRounded from "@/components/stylingPreviews/dots/DotClassyRounded"
+
 // Corners
 import CornerDot from "@/components/stylingPreviews/corners/CornerDot"
 import CornerDots from "@/components/stylingPreviews/corners/CornerDots"
@@ -15,9 +23,6 @@ import CenterRounded from "@/components/stylingPreviews/centers/CenterRounded"
 import CenterExtraRounded from "@/components/stylingPreviews/centers/CenterExtraRounded"
 import CenterClassy from "@/components/stylingPreviews/centers/CenterClassy"
 import CenterClassyRounded from "@/components/stylingPreviews/centers/CenterClassyRounded"
-import DotSquare from "@/components/stylingPreviews/dots/DotSquare"
-import DotDots from "@/components/stylingPreviews/dots/DotDots"
-
 
 export const DOT_OPTIONS = [
   {
@@ -26,11 +31,11 @@ export const DOT_OPTIONS = [
   },
   {
     "type": "extra-rounded",
-    "display": null
+    "display": DotExtraRounded
   },
   {
     "type": "rounded",
-    "display": null
+    "display": DotRounded
   },
   {
     "type": "dots",
@@ -38,11 +43,11 @@ export const DOT_OPTIONS = [
   },
   {
     "type": "classy",
-    "display": null
+    "display": DotClassy
   },
   {
     "type": "classy-rounded",
-    "display": null
+    "display": DotClassyRounded
   }
 ]
 
