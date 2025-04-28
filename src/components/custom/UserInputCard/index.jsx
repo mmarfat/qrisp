@@ -288,7 +288,9 @@ const UserInputCard = () => {
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
               </div>
-              <div className="space-y-3">
+              <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+                {/* Hidden input to avoid browser warning */}
+                <input type="text" name="username" autoComplete="username" className="hidden" />
                 <Label htmlFor="wifi-password" className="text-sm font-medium">
                   {t("userinput.wifi.password")}
                 </Label>
@@ -297,6 +299,7 @@ const UserInputCard = () => {
                   type="password"
                   placeholder={t("userinput.wifi.passwordplaceholder")}
                   value={wifiData.password}
+                  autoComplete="off"
                   onChange={(e) => {
                     const updated = { ...wifiData, password: e.target.value };
                     setWifiData(updated);
@@ -304,7 +307,7 @@ const UserInputCard = () => {
                   }}
                   className="h-11 transition-all focus-visible:ring-offset-2"
                 />
-              </div>
+              </form>
               <div className="space-y-3">
                 <Label className="text-sm font-medium">
                   {t("userinput.wifi.encryption")}
