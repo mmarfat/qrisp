@@ -10,6 +10,10 @@
   ⚡️ A lightning-fast, React-based website for generating QR codes built with <strong>Vite</strong>, <strong>React</strong>, <strong>Tailwind</strong>, and <strong>Shadcn UI</strong>.
 </p>
 
+<div align="center">
+  <img src="docs/assets/lighthouse.png" alt="Lighthouse results" width="50%" />
+</div>
+
 ---
 
 ## 🚀 Features
