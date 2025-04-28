@@ -171,7 +171,7 @@ const OptionsCard = () => {
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium">{t("options.dotstyle")}</Label>
                 <Popover>
-                  <PopoverTrigger>
+                  <PopoverTrigger aria-label="dot style color button">
                     <div className="cursor-pointer">
                       <Palette className="size-6 text-muted-foreground p-1 hover:bg-accent hover:text-accent-foreground rounded-md" />
                     </div>
@@ -226,7 +226,7 @@ const OptionsCard = () => {
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium">{t("options.cornerstyle")}</Label>
                 <Popover>
-                  <PopoverTrigger>
+                  <PopoverTrigger aria-label="corner style color button">
                     <div className="cursor-pointer">
                       <Palette className="size-6 text-muted-foreground p-1 hover:bg-accent hover:text-accent-foreground rounded-md" />
                     </div>
@@ -281,7 +281,7 @@ const OptionsCard = () => {
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium">{t("options.centerstyle")}</Label>
                 <Popover>
-                  <PopoverTrigger>
+                <PopoverTrigger aria-label="center style color button">
                     <div className="cursor-pointer">
                       <Palette className="size-6 text-muted-foreground p-1 hover:bg-accent hover:text-accent-foreground rounded-md" />
                     </div>
