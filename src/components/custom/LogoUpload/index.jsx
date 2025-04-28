@@ -115,7 +115,7 @@ const LogoUpload = () => {
           </Button>
         </div>
         <div className="flex flex-col items-center">
-          <div className="relative w-48 h-48 mb-2 flex items-center">
+          <div className="relative w-48 h-48 mb-2 flex items-center justify-center">
             <img src={logo} alt={t("options.uploadedlogo")} />
           </div>
         </div>
