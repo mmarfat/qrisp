@@ -45,6 +45,7 @@ import {
 
 // Utils
 import { TAB_OPTIONS } from "@/components/custom/UserInputCard/settings";
+import { SYMBOLS } from "@/components/custom/UserInputCard/settings";
 
 const UserInputCard = () => {
 
@@ -58,7 +59,7 @@ const UserInputCard = () => {
   const [textData, setTextData] = useState({ text: "" });
   const [smsData, setSMSData] = useState({ phone: "", message: "" });
   const [emailData, setEmailData] = useState({ email: "", subject: "", message: "" });
-  const [cryptoData, setCryptoData] = useState({ amount: "", address: "", message: ""});
+  const [cryptoData, setCryptoData] = useState({ amount: "", address: "", message: "", currency: "btc", qr: "bitcoin"});
   const [wifiData, setWifiData] = useState({ ssid: "", password: "", encryption: "WPA", hidden: false });
 
   // i18n
@@ -82,7 +83,7 @@ const UserInputCard = () => {
     setTextData({ text: "" });
     setSMSData({ phone: "", message: "" });
     setEmailData({ email: "", subject: "", message: "" });
-    setCryptoData({ amount: "", address: "", message: "" });
+    setCryptoData({ amount: "", address: "", message: "", currency: "btc", qr: "bitcoin"});
     setWifiData({ ssid: "", password: "", encryption: "WPA", hidden: false });
     dispatch(setQrData({}));
   }
@@ -239,17 +240,40 @@ const UserInputCard = () => {
                 <Label htmlFor="crypto-address" className="text-sm font-medium">
                   {t("userinput.crypto.address")}
                 </Label>
-                <Input
-                  id="crypto-address"
-                  placeholder={t("userinput.crypto.exampleaddress")}
-                  value={cryptoData.address}
-                  onChange={(e) => {
-                    const updated = { ...cryptoData, address: e.target.value };
-                    setCryptoData(updated);
-                    handleDataChange("crypto", updated);
-                  }}
-                  className="h-11 transition-all focus-visible:ring-offset-2"
-                />
+                <div className="flex flex-col gap-2 md:flex-row">
+                  <Select 
+                    value={cryptoData.currency}
+                    onValueChange={(value) => {
+                      const selected = SYMBOLS.find(s => s.short === value);
+                      const updated = { ...cryptoData, currency: value, qr: selected?.qr || "" };
+                      setCryptoData(updated);
+                      handleDataChange("crypto", updated);
+                    }}
+                  >
+                    <SelectTrigger className="min-w-[12rem] h-11!">
+                      <SelectValue value="btc" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {(SYMBOLS || []).map(({ name, short }) => (
+                        <SelectItem key={short} value={short}>
+                          <img src={`/crypto-icons/${short}.png`} className="w-5 h-5"/>
+                          {name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Input
+                    id="crypto-address"
+                    placeholder={t("userinput.crypto.exampleaddress")}
+                    value={cryptoData.address}
+                    onChange={(e) => {
+                      const updated = { ...cryptoData, address: e.target.value };
+                      setCryptoData(updated);
+                      handleDataChange("crypto", updated);
+                    }}
+                    className="h-11 transition-all focus-visible:ring-offset-2"
+                  />
+                </div>
               </div>
               <div className="space-y-3">
                 <Label htmlFor="crypto-message" className="text-sm font-medium">

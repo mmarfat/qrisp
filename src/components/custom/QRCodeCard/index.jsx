@@ -95,7 +95,7 @@ const QRCodeCard = () => {
         data = `mailto:${qrData.payload.email}?subject=${encodeURIComponent(qrData.payload.subject)}&body=${encodeURIComponent(qrData.payload.message)}`;
         break;
       case "crypto":
-        data = `bitcoin:${qrData.payload.address}?amount=${qrData.payload.amount}${qrData.payload.message ? `&message=${encodeURIComponent(qrData.payload.message)}` : ''}`;
+        data = `${qrData.payload.qr}:${qrData.payload.address}?amount=${qrData.payload.amount}${qrData.payload.message ? `&message=${encodeURIComponent(qrData.payload.message)}` : ''}`;
         break;
       case "wifi":
         data = `WIFI:T:${qrData.payload.encryption};S:${qrData.payload.ssid};P:${qrData.password};H:${qrData.payload.hidden || false};;`;
