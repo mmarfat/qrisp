@@ -18,6 +18,8 @@ import { Download } from "lucide-react";
 // Utils
 import { DOWNLOAD_OPTIONS } from "@/components/custom/DownloadButton/settings";
 
+import QRCodeStyling from "qr-code-styling";
+
 const DownloadButton = ({ disabled = false, qrCode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
@@ -29,11 +31,19 @@ const DownloadButton = ({ disabled = false, qrCode }) => {
       return;
     }
 
-    qrCode.download({
+    const qrDownload = new QRCodeStyling({
+      ...qrCode._options,
+      ...(format !== "svg" && {
+        width: 2048,
+        height: 2048,
+      }),
+    })
+
+    qrDownload.download({
       extension: format,
     });
   };
-
+  
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen} modal={false}>
       <DropdownMenuTrigger asChild>

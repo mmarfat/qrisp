@@ -25,15 +25,9 @@ export const DOWNLOAD_OPTIONS = [
     desc: "qrpreview.image"
   },
   {
-    label: "PDF",
-    value: "pdf",
-    icon: FileText,
-    desc: "qrpreview.document"
-  },
-  {
-    label: "EPS",
-    value: "eps",
-    icon: FileJson,
-    desc: "qrpreview.vector"
+    label: "WEBP",
+    value: "webp",
+    icon: FileImage,
+    desc: "qrpreview.image"
   },
 ]
